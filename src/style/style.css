@@ -237,7 +237,8 @@ tfoot>td,
   .info-container,
   .container-head,
   .button-print,
-  .info {
+  .info,
+    .avt {
     display: none;
   }
 
