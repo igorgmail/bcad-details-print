@@ -1,0 +1,326 @@
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Slab', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:wght@400;500;700&display=swap');
+
+html {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: lightblue;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.avt>a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  position: sticky;
+  /* top: 20px;
+  left: 30px; */
+}
+
+.avt {
+  cursor: pointer;
+  padding: 20px;
+}
+
+.info {
+  width: 42px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.info:hover {
+  cursor: pointer;
+  transform: rotate(10deg) scale(1.2);
+}
+
+.info:hover path {
+  fill: #7c94dc;
+}
+
+.info path {
+  fill: #0b40de;
+}
+
+#fileInput {
+  display: none;
+}
+
+.container-head {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-header {
+  display: flex;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.block-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin: 8px;
+  padding: 10px;
+  background-color: #FEE6E3;
+}
+
+.block-info>button {
+  margin: 10px;
+}
+
+.button-print {
+  margin: 20px auto;
+}
+
+.block-info>p {
+  margin: 0;
+  padding: 5px;
+}
+
+.block-material {
+  margin: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: start;
+  border: 1px solid grey;
+  border-radius: 4px;
+  background-color: #FEE6E3;
+}
+
+.block-info,
+.block-material,
+table {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+label {
+  cursor: pointer;
+}
+
+.block-material-header {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  grid-template-rows: auto;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-bottom: 1px solid grey;
+  padding-bottom: 8px;
+}
+
+.block-material-header>p {
+  padding: 0;
+  margin: 0;
+}
+
+.mat-choose-all {
+  width: 16px;
+  height: 16px;
+}
+
+.mat-element-wrap {
+  display: grid;
+  grid-template-columns: 6fr 2fr 1fr;
+  grid-template-rows: auto;
+}
+
+.mat-element-wrap>input {
+  width: 16px;
+  height: 16px;
+}
+
+/*  Таблица */
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  margin: 20px auto;
+  padding: 5px;
+  background-color: #FCFCFD;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+tbody {
+  font-size: 0.8em;
+
+}
+
+th {
+  padding: 5px;
+  background-color: #8b9ed0;
+}
+
+.td-centr {
+  text-align: center;
+  padding: 5px;
+  height: 26px;
+}
+
+.pl {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.td-num {
+  text-align: center;
+  margin: 0;
+  height: 50%;
+}
+
+.td-line {
+  text-align: center;
+  margin: 0;
+  line-height: 0.3;
+  font-size: 14pt;
+}
+
+.line-box {
+  height: 50%;
+}
+
+tfoot>td,
+.im {
+  border: none;
+}
+
+.ln {
+  margin-right: 16px;
+}
+
+.im {
+  align-self: end;
+  display: none;
+}
+
+@media print {
+
+  .info-container,
+  .container-head,
+  .button-print,
+  .info {
+    display: none;
+  }
+
+  @page {
+    margin-bottom: 20mm;
+    size: A4;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+    word-spacing: 1px;
+    letter-spacing: 0.2px;
+    font: 14pt Arial, Helvetica, "Lucida Grande", serif;
+    background-color: white;
+    color: #000;
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14pt;
+    background-color: white;
+    box-shadow: none;
+  }
+
+  .td-centr {
+    padding: 2pt;
+  }
+
+  .line-box {
+    width: 100%;
+  }
+
+  .td-line {
+    font-size: 14pt;
+  }
+
+  .im {
+    margin: 16pt;
+    align-self: end;
+    display: flex;
+
+  }
+
+  tfoot>td {
+    border: none;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+  .td-line {
+    margin: 0;
+    line-height: 0.2;
+    font-size: 8pt;
+  }
+
+  table {
+    font-size: 0.7em;
+    width: 80%;
+  }
+}
+
+@media(max-width: 760px) {
+  .bmodal-wrap {
+    width: 60%;
+  }
+
+  .info-container {
+    flex-wrap: wrap;
+  }
+}
+
+@media(max-width: 600px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}

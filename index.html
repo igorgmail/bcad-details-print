@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./src/style/decorate.css">
+  <link rel="stylesheet" type="text/css" href="./src/style/modal.css">
+  <link rel="stylesheet" type="text/css" href="./src/style/style.css">
+  <title>bCad csv Print</title>
+</head>
+
+<body>
+  <div class="avt">
+    <a href="https://github.com/igorgmail">igorfordev@gmail.com</a>
+  </div>
+  <div class="bmodal" id="bcad-modal">
+    <div class="bmodal-over">
+      <div class="bmodal-wrap">
+        <div class="bmodal-head">
+          <span class="bmodal-title">bCad csv to Print</span>
+          <span class="bmodal-close">&times</span>
+        </div>
+        <div class="bmodal-body">
+          <p>В программе bCad мебель откройте Отчеты и сохраните в формате CSV.</p>
+          <p>Загрузите этот файл, и получите деталировку в удобом, читаемом виде ))</p>
+        </div>
+        <div class="bmodal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 256 256">
+      <path
+        d="m128 22.158a105.84 105.84 0 0 0 -105.84 105.84 105.84 105.84 0 0 0 105.84 105.84 105.84 105.84 0 0 0 105.84 -105.84 105.84 105.84 0 0 0 -105.84 -105.84zm0 32.76c5.16 0.117 9.55 1.875 13.18 5.273 3.34 3.575 5.07 7.94 5.19 13.096-0.12 5.156-1.85 9.404-5.19 12.744-3.63 3.75-8.02 5.625-13.18 5.625s-9.4-1.875-12.74-5.625c-3.75-3.34-5.63-7.588-5.63-12.744s1.88-9.521 5.63-13.096c3.34-3.398 7.58-5.156 12.74-5.273zm-16.35 53.792h32.79v92.37h-32.79v-92.37z"
+        fill-rule="evenodd" fill="#72a7cf" />
+    </svg>
+  </div>
+  <div class="container-head">
+    <div class="my-header">
+      <h2>bCad csv Print</h2>
+    </div>
+    <div class="block-upload">
+      <button type="button" id="uploadButton" class="button-56">Загрузить файл</button>
+      <input type="file" id="fileInput" name="file-link" accept="text/csv">
+    </div>
+  </div>
+
+  <div class="info-container"></div>
+
+  <div class="container-body">
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script type="module" src="./boundle.js"></script>
+</body>
+
+</html>

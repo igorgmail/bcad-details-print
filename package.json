@@ -1,0 +1,24 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify ./src/scripts/index.js -o ./boundle.js",
+    "watch": "watchify ./src/scripts/index.js -o ./boundle.js",
+    "debug": "browserify ./src/scripts/index.js -o ./boundle.js --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "iconv-lite": "^0.6.3",
+    "watchify": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0"
+  }
+}

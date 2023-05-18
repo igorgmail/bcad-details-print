@@ -1,0 +1,51 @@
+#bcad-modal {
+  display: none;
+}
+
+.bmodal-over {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.bmodal-wrap {
+  width: 600px;
+  margin: 100px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: aliceblue;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.bmodal-head {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  background-color: rgb(209, 209, 211);
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid black;
+}
+
+.bmodal-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.bmodal-close {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.bmodal-body {
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+}
