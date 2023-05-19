@@ -40,7 +40,8 @@ uploadInput.addEventListener('change', async (event) => {
   const myFile = event.target.files[0]
 
   if (!fileValidate(myFile)) {
-    alert("Ошибка загрузки файла, или файл больше 10mb")
+    alert(`Ошибка загрузки файла, или файл больше 10mb.
+    Или попробуйте перезагрузить страницу`)
     return
   }
 

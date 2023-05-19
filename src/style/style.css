@@ -188,6 +188,12 @@ tbody {
 th {
   padding: 5px;
   background-color: #8b9ed0;
+  -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .td-centr {

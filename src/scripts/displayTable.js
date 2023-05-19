@@ -19,7 +19,8 @@ function addTableHead() {
   <th>Название</th>
   <th colspan="2">Габариты</th>
   <th colspan="2">Кромки</th>
-  <th>Текстура</th>`
+  <th>Текстура</th>
+  <th>Материал</th>`
   tableHead.append(trHead)
 }
 
@@ -33,6 +34,7 @@ function makeTable(array) {
 }
 
 function addTableRow(obj) {
+  console.log("▶ ⇛ obj:", obj);
   const tr = document.createElement('tr')
   tr.innerHTML = `
   <tr>
@@ -64,6 +66,7 @@ function addTableRow(obj) {
     </div>
 </td>
 
+<td class="td-centr pl">${obj["texture"] == 'Не определена' ? '-' : obj["texture"]}</td>
 <td class="pl">${obj["core"]}</td>
 </tr>
 `
