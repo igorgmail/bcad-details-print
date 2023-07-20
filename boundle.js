@@ -7344,11 +7344,11 @@ module.exports = formatBytes
 },{}],40:[function(require,module,exports){
 const modal = {
   show() {
-    document.getElementById('bcad-modal').style.display = 'block'
+    document.getElementById('bcad-info-modalId').style.display = 'block'
   },
 
   close() {
-    document.getElementById('bcad-modal').style.display = 'none'
+    document.getElementById('bcad-info-modalId').style.display = 'none'
   }
 }
 
