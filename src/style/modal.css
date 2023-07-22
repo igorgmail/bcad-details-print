@@ -1,5 +1,5 @@
 #bcad-info-modalId {
-  display: none;
+    visibility: hidden;
 }
 hr {
   width: 80%;
@@ -12,16 +12,19 @@ hr {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bmodal-wrap {
   width: 600px;
-  margin: 100px auto;
   border: 1px solid black;
   border-radius: 10px;
   background-color: aliceblue;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  position: relative;
 }
 
 .bmodal-head {
@@ -58,4 +61,45 @@ hr {
 
 .bmodal-footer>button {
   margin: auto;
+}
+.modal-active {
+  animation-name: modal-show;
+  animation-duration: .1s;
+  animation-timing-function: ease-in;
+}
+
+.modal-hidden {
+  animation-name: modal-close;
+  animation-duration: .1s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes modal-show {
+  0% {
+    filter: blur(50px) opacity(0);
+    -webkit-filter: blur(50px) opacity(0);
+    transform: translatey(-122px);
+    transform: scale(.1);
+    visibility: hidden;
+  }
+
+  100% {
+    visibility: visible;
+    transform: scale(1);
+    filter: blur(0px) opacity(1);
+    -webkit-blur(0px) opacity(1);
+  }
+}
+
+@keyframes modal-close {
+  0% {
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translatey(-122px);
+    transform: scale(.1);
+  }
 }
