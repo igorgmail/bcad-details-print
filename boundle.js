@@ -2534,7 +2534,7 @@ function findIdx(table, val) {
 }
 
 
-},{"safer-buffer":30}],6:[function(require,module,exports){
+},{"safer-buffer":29}],6:[function(require,module,exports){
 "use strict";
 
 // Description of supported double byte encodings and aliases.
@@ -2949,7 +2949,7 @@ InternalDecoderCesu8.prototype.end = function() {
     return res;
 }
 
-},{"safer-buffer":30,"string_decoder":31}],9:[function(require,module,exports){
+},{"safer-buffer":29,"string_decoder":30}],9:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -3023,7 +3023,7 @@ SBCSDecoder.prototype.write = function(buf) {
 SBCSDecoder.prototype.end = function() {
 }
 
-},{"safer-buffer":30}],10:[function(require,module,exports){
+},{"safer-buffer":29}],10:[function(require,module,exports){
 "use strict";
 
 // Generated data for sbcs codec. Don't edit manually. Regenerate using generation/gen-sbcs.js script.
@@ -5070,7 +5070,7 @@ function detectEncoding(bufs, defaultEncoding) {
 
 
 
-},{"safer-buffer":30}],21:[function(require,module,exports){
+},{"safer-buffer":29}],21:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safer-buffer').Buffer;
@@ -5391,7 +5391,7 @@ function detectEncoding(bufs, defaultEncoding) {
     return defaultEncoding || 'utf-32le';
 }
 
-},{"safer-buffer":30}],22:[function(require,module,exports){
+},{"safer-buffer":29}],22:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -5683,7 +5683,7 @@ Utf7IMAPDecoder.prototype.end = function() {
 
 
 
-},{"safer-buffer":30}],23:[function(require,module,exports){
+},{"safer-buffer":29}],23:[function(require,module,exports){
 "use strict";
 
 var BOMChar = '\uFEFF';
@@ -5919,7 +5919,7 @@ if ("Ā" != "\u0100") {
     console.error("iconv-lite warning: js files use non-utf8 encoding. See https://github.com/ashtuchkin/iconv-lite/wiki/Javascript-source-file-encodings for more info.");
 }
 
-},{"../encodings":7,"./bom-handling":23,"./streams":25,"safer-buffer":30,"stream":2}],25:[function(require,module,exports){
+},{"../encodings":7,"./bom-handling":23,"./streams":25,"safer-buffer":29,"stream":2}],25:[function(require,module,exports){
 "use strict";
 
 var Buffer = require("safer-buffer").Buffer;
@@ -6030,7 +6030,7 @@ module.exports = function(stream_module) {
     };
 };
 
-},{"safer-buffer":30}],26:[function(require,module,exports){
+},{"safer-buffer":29}],26:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -6118,539 +6118,6 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 }
 
 },{}],27:[function(require,module,exports){
-(function (process){(function (){
-// 'path' module extracted from Node.js v8.11.1 (only the posix part)
-// transplited with Babel
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-'use strict';
-
-function assertPath(path) {
-  if (typeof path !== 'string') {
-    throw new TypeError('Path must be a string. Received ' + JSON.stringify(path));
-  }
-}
-
-// Resolves . and .. elements in a path with directory names
-function normalizeStringPosix(path, allowAboveRoot) {
-  var res = '';
-  var lastSegmentLength = 0;
-  var lastSlash = -1;
-  var dots = 0;
-  var code;
-  for (var i = 0; i <= path.length; ++i) {
-    if (i < path.length)
-      code = path.charCodeAt(i);
-    else if (code === 47 /*/*/)
-      break;
-    else
-      code = 47 /*/*/;
-    if (code === 47 /*/*/) {
-      if (lastSlash === i - 1 || dots === 1) {
-        // NOOP
-      } else if (lastSlash !== i - 1 && dots === 2) {
-        if (res.length < 2 || lastSegmentLength !== 2 || res.charCodeAt(res.length - 1) !== 46 /*.*/ || res.charCodeAt(res.length - 2) !== 46 /*.*/) {
-          if (res.length > 2) {
-            var lastSlashIndex = res.lastIndexOf('/');
-            if (lastSlashIndex !== res.length - 1) {
-              if (lastSlashIndex === -1) {
-                res = '';
-                lastSegmentLength = 0;
-              } else {
-                res = res.slice(0, lastSlashIndex);
-                lastSegmentLength = res.length - 1 - res.lastIndexOf('/');
-              }
-              lastSlash = i;
-              dots = 0;
-              continue;
-            }
-          } else if (res.length === 2 || res.length === 1) {
-            res = '';
-            lastSegmentLength = 0;
-            lastSlash = i;
-            dots = 0;
-            continue;
-          }
-        }
-        if (allowAboveRoot) {
-          if (res.length > 0)
-            res += '/..';
-          else
-            res = '..';
-          lastSegmentLength = 2;
-        }
-      } else {
-        if (res.length > 0)
-          res += '/' + path.slice(lastSlash + 1, i);
-        else
-          res = path.slice(lastSlash + 1, i);
-        lastSegmentLength = i - lastSlash - 1;
-      }
-      lastSlash = i;
-      dots = 0;
-    } else if (code === 46 /*.*/ && dots !== -1) {
-      ++dots;
-    } else {
-      dots = -1;
-    }
-  }
-  return res;
-}
-
-function _format(sep, pathObject) {
-  var dir = pathObject.dir || pathObject.root;
-  var base = pathObject.base || (pathObject.name || '') + (pathObject.ext || '');
-  if (!dir) {
-    return base;
-  }
-  if (dir === pathObject.root) {
-    return dir + base;
-  }
-  return dir + sep + base;
-}
-
-var posix = {
-  // path.resolve([from ...], to)
-  resolve: function resolve() {
-    var resolvedPath = '';
-    var resolvedAbsolute = false;
-    var cwd;
-
-    for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-      var path;
-      if (i >= 0)
-        path = arguments[i];
-      else {
-        if (cwd === undefined)
-          cwd = process.cwd();
-        path = cwd;
-      }
-
-      assertPath(path);
-
-      // Skip empty entries
-      if (path.length === 0) {
-        continue;
-      }
-
-      resolvedPath = path + '/' + resolvedPath;
-      resolvedAbsolute = path.charCodeAt(0) === 47 /*/*/;
-    }
-
-    // At this point the path should be resolved to a full absolute path, but
-    // handle relative paths to be safe (might happen when process.cwd() fails)
-
-    // Normalize the path
-    resolvedPath = normalizeStringPosix(resolvedPath, !resolvedAbsolute);
-
-    if (resolvedAbsolute) {
-      if (resolvedPath.length > 0)
-        return '/' + resolvedPath;
-      else
-        return '/';
-    } else if (resolvedPath.length > 0) {
-      return resolvedPath;
-    } else {
-      return '.';
-    }
-  },
-
-  normalize: function normalize(path) {
-    assertPath(path);
-
-    if (path.length === 0) return '.';
-
-    var isAbsolute = path.charCodeAt(0) === 47 /*/*/;
-    var trailingSeparator = path.charCodeAt(path.length - 1) === 47 /*/*/;
-
-    // Normalize the path
-    path = normalizeStringPosix(path, !isAbsolute);
-
-    if (path.length === 0 && !isAbsolute) path = '.';
-    if (path.length > 0 && trailingSeparator) path += '/';
-
-    if (isAbsolute) return '/' + path;
-    return path;
-  },
-
-  isAbsolute: function isAbsolute(path) {
-    assertPath(path);
-    return path.length > 0 && path.charCodeAt(0) === 47 /*/*/;
-  },
-
-  join: function join() {
-    if (arguments.length === 0)
-      return '.';
-    var joined;
-    for (var i = 0; i < arguments.length; ++i) {
-      var arg = arguments[i];
-      assertPath(arg);
-      if (arg.length > 0) {
-        if (joined === undefined)
-          joined = arg;
-        else
-          joined += '/' + arg;
-      }
-    }
-    if (joined === undefined)
-      return '.';
-    return posix.normalize(joined);
-  },
-
-  relative: function relative(from, to) {
-    assertPath(from);
-    assertPath(to);
-
-    if (from === to) return '';
-
-    from = posix.resolve(from);
-    to = posix.resolve(to);
-
-    if (from === to) return '';
-
-    // Trim any leading backslashes
-    var fromStart = 1;
-    for (; fromStart < from.length; ++fromStart) {
-      if (from.charCodeAt(fromStart) !== 47 /*/*/)
-        break;
-    }
-    var fromEnd = from.length;
-    var fromLen = fromEnd - fromStart;
-
-    // Trim any leading backslashes
-    var toStart = 1;
-    for (; toStart < to.length; ++toStart) {
-      if (to.charCodeAt(toStart) !== 47 /*/*/)
-        break;
-    }
-    var toEnd = to.length;
-    var toLen = toEnd - toStart;
-
-    // Compare paths to find the longest common path from root
-    var length = fromLen < toLen ? fromLen : toLen;
-    var lastCommonSep = -1;
-    var i = 0;
-    for (; i <= length; ++i) {
-      if (i === length) {
-        if (toLen > length) {
-          if (to.charCodeAt(toStart + i) === 47 /*/*/) {
-            // We get here if `from` is the exact base path for `to`.
-            // For example: from='/foo/bar'; to='/foo/bar/baz'
-            return to.slice(toStart + i + 1);
-          } else if (i === 0) {
-            // We get here if `from` is the root
-            // For example: from='/'; to='/foo'
-            return to.slice(toStart + i);
-          }
-        } else if (fromLen > length) {
-          if (from.charCodeAt(fromStart + i) === 47 /*/*/) {
-            // We get here if `to` is the exact base path for `from`.
-            // For example: from='/foo/bar/baz'; to='/foo/bar'
-            lastCommonSep = i;
-          } else if (i === 0) {
-            // We get here if `to` is the root.
-            // For example: from='/foo'; to='/'
-            lastCommonSep = 0;
-          }
-        }
-        break;
-      }
-      var fromCode = from.charCodeAt(fromStart + i);
-      var toCode = to.charCodeAt(toStart + i);
-      if (fromCode !== toCode)
-        break;
-      else if (fromCode === 47 /*/*/)
-        lastCommonSep = i;
-    }
-
-    var out = '';
-    // Generate the relative path based on the path difference between `to`
-    // and `from`
-    for (i = fromStart + lastCommonSep + 1; i <= fromEnd; ++i) {
-      if (i === fromEnd || from.charCodeAt(i) === 47 /*/*/) {
-        if (out.length === 0)
-          out += '..';
-        else
-          out += '/..';
-      }
-    }
-
-    // Lastly, append the rest of the destination (`to`) path that comes after
-    // the common path parts
-    if (out.length > 0)
-      return out + to.slice(toStart + lastCommonSep);
-    else {
-      toStart += lastCommonSep;
-      if (to.charCodeAt(toStart) === 47 /*/*/)
-        ++toStart;
-      return to.slice(toStart);
-    }
-  },
-
-  _makeLong: function _makeLong(path) {
-    return path;
-  },
-
-  dirname: function dirname(path) {
-    assertPath(path);
-    if (path.length === 0) return '.';
-    var code = path.charCodeAt(0);
-    var hasRoot = code === 47 /*/*/;
-    var end = -1;
-    var matchedSlash = true;
-    for (var i = path.length - 1; i >= 1; --i) {
-      code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          if (!matchedSlash) {
-            end = i;
-            break;
-          }
-        } else {
-        // We saw the first non-path separator
-        matchedSlash = false;
-      }
-    }
-
-    if (end === -1) return hasRoot ? '/' : '.';
-    if (hasRoot && end === 1) return '//';
-    return path.slice(0, end);
-  },
-
-  basename: function basename(path, ext) {
-    if (ext !== undefined && typeof ext !== 'string') throw new TypeError('"ext" argument must be a string');
-    assertPath(path);
-
-    var start = 0;
-    var end = -1;
-    var matchedSlash = true;
-    var i;
-
-    if (ext !== undefined && ext.length > 0 && ext.length <= path.length) {
-      if (ext.length === path.length && ext === path) return '';
-      var extIdx = ext.length - 1;
-      var firstNonSlashEnd = -1;
-      for (i = path.length - 1; i >= 0; --i) {
-        var code = path.charCodeAt(i);
-        if (code === 47 /*/*/) {
-            // If we reached a path separator that was not part of a set of path
-            // separators at the end of the string, stop now
-            if (!matchedSlash) {
-              start = i + 1;
-              break;
-            }
-          } else {
-          if (firstNonSlashEnd === -1) {
-            // We saw the first non-path separator, remember this index in case
-            // we need it if the extension ends up not matching
-            matchedSlash = false;
-            firstNonSlashEnd = i + 1;
-          }
-          if (extIdx >= 0) {
-            // Try to match the explicit extension
-            if (code === ext.charCodeAt(extIdx)) {
-              if (--extIdx === -1) {
-                // We matched the extension, so mark this as the end of our path
-                // component
-                end = i;
-              }
-            } else {
-              // Extension does not match, so our result is the entire path
-              // component
-              extIdx = -1;
-              end = firstNonSlashEnd;
-            }
-          }
-        }
-      }
-
-      if (start === end) end = firstNonSlashEnd;else if (end === -1) end = path.length;
-      return path.slice(start, end);
-    } else {
-      for (i = path.length - 1; i >= 0; --i) {
-        if (path.charCodeAt(i) === 47 /*/*/) {
-            // If we reached a path separator that was not part of a set of path
-            // separators at the end of the string, stop now
-            if (!matchedSlash) {
-              start = i + 1;
-              break;
-            }
-          } else if (end === -1) {
-          // We saw the first non-path separator, mark this as the end of our
-          // path component
-          matchedSlash = false;
-          end = i + 1;
-        }
-      }
-
-      if (end === -1) return '';
-      return path.slice(start, end);
-    }
-  },
-
-  extname: function extname(path) {
-    assertPath(path);
-    var startDot = -1;
-    var startPart = 0;
-    var end = -1;
-    var matchedSlash = true;
-    // Track the state of characters (if any) we see before our first dot and
-    // after any path separator we find
-    var preDotState = 0;
-    for (var i = path.length - 1; i >= 0; --i) {
-      var code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          // If we reached a path separator that was not part of a set of path
-          // separators at the end of the string, stop now
-          if (!matchedSlash) {
-            startPart = i + 1;
-            break;
-          }
-          continue;
-        }
-      if (end === -1) {
-        // We saw the first non-path separator, mark this as the end of our
-        // extension
-        matchedSlash = false;
-        end = i + 1;
-      }
-      if (code === 46 /*.*/) {
-          // If this is our first dot, mark it as the start of our extension
-          if (startDot === -1)
-            startDot = i;
-          else if (preDotState !== 1)
-            preDotState = 1;
-      } else if (startDot !== -1) {
-        // We saw a non-dot and non-path separator before our dot, so we should
-        // have a good chance at having a non-empty extension
-        preDotState = -1;
-      }
-    }
-
-    if (startDot === -1 || end === -1 ||
-        // We saw a non-dot character immediately before the dot
-        preDotState === 0 ||
-        // The (right-most) trimmed path component is exactly '..'
-        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-      return '';
-    }
-    return path.slice(startDot, end);
-  },
-
-  format: function format(pathObject) {
-    if (pathObject === null || typeof pathObject !== 'object') {
-      throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof pathObject);
-    }
-    return _format('/', pathObject);
-  },
-
-  parse: function parse(path) {
-    assertPath(path);
-
-    var ret = { root: '', dir: '', base: '', ext: '', name: '' };
-    if (path.length === 0) return ret;
-    var code = path.charCodeAt(0);
-    var isAbsolute = code === 47 /*/*/;
-    var start;
-    if (isAbsolute) {
-      ret.root = '/';
-      start = 1;
-    } else {
-      start = 0;
-    }
-    var startDot = -1;
-    var startPart = 0;
-    var end = -1;
-    var matchedSlash = true;
-    var i = path.length - 1;
-
-    // Track the state of characters (if any) we see before our first dot and
-    // after any path separator we find
-    var preDotState = 0;
-
-    // Get non-dir info
-    for (; i >= start; --i) {
-      code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          // If we reached a path separator that was not part of a set of path
-          // separators at the end of the string, stop now
-          if (!matchedSlash) {
-            startPart = i + 1;
-            break;
-          }
-          continue;
-        }
-      if (end === -1) {
-        // We saw the first non-path separator, mark this as the end of our
-        // extension
-        matchedSlash = false;
-        end = i + 1;
-      }
-      if (code === 46 /*.*/) {
-          // If this is our first dot, mark it as the start of our extension
-          if (startDot === -1) startDot = i;else if (preDotState !== 1) preDotState = 1;
-        } else if (startDot !== -1) {
-        // We saw a non-dot and non-path separator before our dot, so we should
-        // have a good chance at having a non-empty extension
-        preDotState = -1;
-      }
-    }
-
-    if (startDot === -1 || end === -1 ||
-    // We saw a non-dot character immediately before the dot
-    preDotState === 0 ||
-    // The (right-most) trimmed path component is exactly '..'
-    preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-      if (end !== -1) {
-        if (startPart === 0 && isAbsolute) ret.base = ret.name = path.slice(1, end);else ret.base = ret.name = path.slice(startPart, end);
-      }
-    } else {
-      if (startPart === 0 && isAbsolute) {
-        ret.name = path.slice(1, startDot);
-        ret.base = path.slice(1, end);
-      } else {
-        ret.name = path.slice(startPart, startDot);
-        ret.base = path.slice(startPart, end);
-      }
-      ret.ext = path.slice(startDot, end);
-    }
-
-    if (startPart > 0) ret.dir = path.slice(0, startPart - 1);else if (isAbsolute) ret.dir = '/';
-
-    return ret;
-  },
-
-  sep: '/',
-  delimiter: ':',
-  win32: null,
-  posix: null
-};
-
-posix.posix = posix;
-
-module.exports = posix;
-
-}).call(this)}).call(this,require('_process'))
-},{"_process":28}],28:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -6836,7 +6303,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],29:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
@@ -6903,7 +6370,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":4}],30:[function(require,module,exports){
+},{"buffer":4}],29:[function(require,module,exports){
 (function (process){(function (){
 /* eslint-disable node/no-deprecated-api */
 
@@ -6984,7 +6451,7 @@ if (!safer.constants) {
 module.exports = safer
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":28,"buffer":4}],31:[function(require,module,exports){
+},{"_process":27,"buffer":4}],30:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7281,7 +6748,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":29}],32:[function(require,module,exports){
+},{"safe-buffer":28}],31:[function(require,module,exports){
 const formatBites = require('./servises/formatBites')
 
 const infoContainer = document.querySelector('.info-container') // блок с инфо
@@ -7336,7 +6803,7 @@ function createInfoBlock(file) {
 }
 
 module.exports = createInfoBlock;
-},{"./servises/formatBites":41}],33:[function(require,module,exports){
+},{"./servises/formatBites":40}],32:[function(require,module,exports){
 function changeEdges(array) {
   const kr1 = '⎯⎯⎯';
   const kr2 = '- - -';
@@ -7397,7 +6864,7 @@ function changeEdges(array) {
 }
 
 module.exports = changeEdges;
-},{}],34:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 const readCsvFromFile = require('./readCsvFromFile')
 const changeEdges = require('./changeEdges.js')
 const makeArrayObjects = require('./makeArrayObjects.js')
@@ -7411,7 +6878,7 @@ async function convertFile(file) {
 }
 
 module.exports = convertFile;
-},{"./changeEdges.js":33,"./makeArrayObjects.js":35,"./readCsvFromFile":36}],35:[function(require,module,exports){
+},{"./changeEdges.js":32,"./makeArrayObjects.js":34,"./readCsvFromFile":35}],34:[function(require,module,exports){
 // Создать обьект с заголовкамми где ключ название, значение индекс
 
 function getHeadersAndDetailsArray(arrayDetailsAll) {
@@ -7494,7 +6961,7 @@ function makeArrayObjects(arrayDetails) {
 
 module.exports = makeArrayObjects;
 
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (Buffer){(function (){
 var iconv = require('iconv-lite')
 
@@ -7548,7 +7015,7 @@ function validCodeCsv(data) {
 
 module.exports = readCsvFromFile;
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4,"iconv-lite":24}],37:[function(require,module,exports){
+},{"buffer":4,"iconv-lite":24}],36:[function(require,module,exports){
 const tableHead = document.querySelector('thead')
 const tableBody = document.querySelector('tbody')
 
@@ -7651,7 +7118,7 @@ function addName() {
 module.exports = { displayTable, addName };
 
 
-},{}],38:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 const fileValidate = require('./servises/validate.js')
 const { displayTable, addName } = require('./displayTable.js')
 
@@ -7680,17 +7147,11 @@ document.querySelector('.info-button__mock').addEventListener(('click'), async (
   e.preventDefault()
   const fileBlob = await mockHandler.getFilePath()
   const fakeFile = new File([fileBlob], 'demo.csv', { type: 'text/csv' });
-  console.log("▶ ⇛ fakeFile:", fakeFile);
   clean('all')
   setTimeout(() => {
     modal.close()
   }, 200)
   fileHandler(null, fakeFile)
-  // triggerInputChange(fileBlob)
-
-  // const jsonDetail = await convertFile(fileBlob);
-  // console.log("▶ ⇛ jsonDetail:", jsonDetail);
-
 })
 document.querySelector('.bmodal').addEventListener('click', (e) => {
   e.preventDefault()
@@ -7713,7 +7174,6 @@ uploadInput.addEventListener('change', async (event) => {
 async function fileHandler(event, file) {
 
   const myFile = event?.target.files[0] || file
-  console.log("▶ ⇛ myFile: Input", myFile);
 
   if (!fileValidate(myFile)) {
     alert(`Ошибка загрузки файла, или файл больше 10mb.
@@ -7735,7 +7195,6 @@ async function fileHandler(event, file) {
 
   // checkbox All
   checkboxAll.addEventListener('change', (ev) => {
-    console.log(ev.target.checked);
     const checkboxes = document.querySelectorAll('.mat-choose');
     if (ev.target.checked) {
       checkboxes.forEach((checkbox) => {
@@ -7752,7 +7211,6 @@ async function fileHandler(event, file) {
   document.querySelector('.block-material').addEventListener('click', (e) => {
     e.stopPropagation()
     if (e.target.className === 'mat-choose' && checkboxAll.checked === true) {
-      console.log("IN IF");
       checkboxAll.checked = false
     }
   })
@@ -7764,7 +7222,6 @@ async function fileHandler(event, file) {
     const arrChoose = getCheckedMaterials()
     const jsonFromSort = sortByMaterials(jsonDetail, arrChoose)
     const buttonPrint = displayTable(jsonFromSort) // Вернет кнопку печать
-    // console.log("▶ ⇛ buttonPrint:", buttonPrint);
     if (buttonPrint) buttonPrint.addEventListener('click', (e) => {
       addName()
       window.print()
@@ -7787,7 +7244,7 @@ function getCheckedMaterials() {
   return checkedMaterials;
 }
 
-},{"./createInfoBlock.js":32,"./csvMake/index.js":34,"./displayTable.js":37,"./servises/cleanElements.js":39,"./servises/createMaterialBlock.js":40,"./servises/mockHandler.js":42,"./servises/modal.js":43,"./servises/sortMaterials.js":44,"./servises/validate.js":45}],39:[function(require,module,exports){
+},{"./createInfoBlock.js":31,"./csvMake/index.js":33,"./displayTable.js":36,"./servises/cleanElements.js":38,"./servises/createMaterialBlock.js":39,"./servises/mockHandler.js":41,"./servises/modal.js":42,"./servises/sortMaterials.js":43,"./servises/validate.js":44}],38:[function(require,module,exports){
 // Очищаем Таблицу
 const cleanTable = () => {
   const tableHead = document.querySelector('thead')
@@ -7804,7 +7261,6 @@ function clean(param) {
     cleanTable()
   }
   if (param === 'all') {
-    console.log("INFO COntainer Deleted");
     const uploadInput = document.getElementById('fileInput') // поле инпут
     const infoContainer = document.querySelector('.info-container') // блок с инфо
     infoContainer.innerHTML = ''
@@ -7814,7 +7270,7 @@ function clean(param) {
   }
 }
 module.exports = { clean }
-},{}],40:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 
 // ? addMaterialBlock получает json с деталями и 
@@ -7895,7 +7351,7 @@ const addMaterialBlock = (jsonDetail) => {
 }
 
 module.exports = addMaterialBlock;
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) {
     return '0';
@@ -7908,21 +7364,14 @@ function formatBytes(bytes, decimals = 2) {
 }
 
 module.exports = formatBytes
-},{}],42:[function(require,module,exports){
-const path = require('path')
+},{}],41:[function(require,module,exports){
 const fs = require('fs')
 
 const mock = {
   async getFilePath() {
-    // const dirPath = path.resolve(__dirname, '..', '..', 'mock')
-    // const fileName = fs.readdirSync(dirPath, 'utf-8')
-    // const filePath = path.resolve(dirPath, fileName[0])
     const response = await fetch('./src/mock/demo.csv')
     const fileBlob = await response.blob()
-    console.log("▶ ⇛ fileBlob:", fileBlob);
     return fileBlob
-
-    // return filePath
   },
   readFile(filePath) {
     const fileData = fs.readFileSync(filePath)
@@ -7930,9 +7379,8 @@ const mock = {
   }
 }
 
-// mock.getPath()
 module.exports = mock;
-},{"fs":3,"path":27}],43:[function(require,module,exports){
+},{"fs":3}],42:[function(require,module,exports){
 const modal = {
   show() {
     // document.getElementById('bcad-info-modalId').style.display = 'block';
@@ -7952,7 +7400,7 @@ const modal = {
 }
 
 module.exports = modal;
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 // Получает json с деталями и параметры выбранных checkbox
 // И возвращает json отсортированных деталей с учетом выбранного материала
 
@@ -7967,9 +7415,8 @@ function sortByMaterials(json, arrChoose) {
 }
 
 module.exports = sortByMaterials;
-},{}],45:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 function fileValidate(file) {
-  console.log("▶ ⇛ file Validate:", file);
   try {
     if (file.type === "text/csv" || file.type === "application/vnd.ms-excel") {
       return true
@@ -7985,4 +7432,4 @@ function fileValidate(file) {
 }
 
 module.exports = fileValidate;
-},{}]},{},[38]);
+},{}]},{},[37]);
