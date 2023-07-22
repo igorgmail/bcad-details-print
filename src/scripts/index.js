@@ -26,17 +26,11 @@ document.querySelector('.info-button__mock').addEventListener(('click'), async (
   e.preventDefault()
   const fileBlob = await mockHandler.getFilePath()
   const fakeFile = new File([fileBlob], 'demo.csv', { type: 'text/csv' });
-  console.log("▶ ⇛ fakeFile:", fakeFile);
   clean('all')
   setTimeout(() => {
     modal.close()
   }, 200)
   fileHandler(null, fakeFile)
-  // triggerInputChange(fileBlob)
-
-  // const jsonDetail = await convertFile(fileBlob);
-  // console.log("▶ ⇛ jsonDetail:", jsonDetail);
-
 })
 document.querySelector('.bmodal').addEventListener('click', (e) => {
   e.preventDefault()
@@ -59,7 +53,6 @@ uploadInput.addEventListener('change', async (event) => {
 async function fileHandler(event, file) {
 
   const myFile = event?.target.files[0] || file
-  console.log("▶ ⇛ myFile: Input", myFile);
 
   if (!fileValidate(myFile)) {
     alert(`Ошибка загрузки файла, или файл больше 10mb.
@@ -81,7 +74,6 @@ async function fileHandler(event, file) {
 
   // checkbox All
   checkboxAll.addEventListener('change', (ev) => {
-    console.log(ev.target.checked);
     const checkboxes = document.querySelectorAll('.mat-choose');
     if (ev.target.checked) {
       checkboxes.forEach((checkbox) => {
@@ -98,7 +90,6 @@ async function fileHandler(event, file) {
   document.querySelector('.block-material').addEventListener('click', (e) => {
     e.stopPropagation()
     if (e.target.className === 'mat-choose' && checkboxAll.checked === true) {
-      console.log("IN IF");
       checkboxAll.checked = false
     }
   })
@@ -110,7 +101,6 @@ async function fileHandler(event, file) {
     const arrChoose = getCheckedMaterials()
     const jsonFromSort = sortByMaterials(jsonDetail, arrChoose)
     const buttonPrint = displayTable(jsonFromSort) // Вернет кнопку печать
-    // console.log("▶ ⇛ buttonPrint:", buttonPrint);
     if (buttonPrint) buttonPrint.addEventListener('click', (e) => {
       addName()
       window.print()

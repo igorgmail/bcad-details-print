@@ -1,7 +1,6 @@
 function fileValidate(file) {
-  console.log("▶ ⇛ file Validate:", file);
   try {
-    if (file.type === "text/csv") {
+    if (file.type === "text/csv" || file.type === "application/vnd.ms-excel") {
       return true
     }
 

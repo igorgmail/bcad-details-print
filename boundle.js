@@ -7556,12 +7556,18 @@ function displayTable(jsonDetails) {
   const arrData = JSON.parse(jsonDetails)
   addTableHead()
   makeTable(arrData)
+  calcScroll()
   // addName()
   if (tableBody.innerHTML) {
     return addButtonPrint()
   }
 }
-
+// Считаем появление скрола
+function calcScroll() {
+  const scrollWidth = window.innerWidth - document.body.offsetWidth; // размер скролла
+  document.body.style.paddingRight = `${36 - scrollWidth}px`;
+  document.querySelector('.info').style.right = `${36 - scrollWidth}px`;
+}
 // Добавляем заголовки в таблицу
 function addTableHead() {
   const trHead = document.createElement('tr')
@@ -7585,7 +7591,6 @@ function makeTable(array) {
 }
 
 function addTableRow(obj) {
-  console.log("▶ ⇛ obj:", obj);
   const tr = document.createElement('tr')
   tr.innerHTML = `
   <tr>
@@ -7787,6 +7792,8 @@ function getCheckedMaterials() {
 const cleanTable = () => {
   const tableHead = document.querySelector('thead')
   const tableBody = document.querySelector('tbody')
+  document.body.style.paddingRight = `36px`;
+  document.querySelector('.info').style.right = `36px`;
   tableHead.innerHTML = ``
   tableBody.innerHTML = ``
   if (document.querySelector('.button-print')) document.querySelector('.button-print').remove()
@@ -7928,11 +7935,19 @@ module.exports = mock;
 },{"fs":3,"path":27}],43:[function(require,module,exports){
 const modal = {
   show() {
-    document.getElementById('bcad-info-modalId').style.display = 'block'
+    // document.getElementById('bcad-info-modalId').style.display = 'block';
+    document.getElementById('bcad-info-modalId').style.visibility = 'visible';
+    document.querySelector('.bmodal-wrap').classList.add('modal-active');
+    document.querySelector('.bmodal-wrap').classList.remove('modal-hidden');
+
   },
 
   close() {
-    document.getElementById('bcad-info-modalId').style.display = 'none'
+    document.querySelector('.bmodal-wrap').classList.remove('modal-active');
+    document.querySelector('.bmodal-wrap').classList.add('modal-hidden');
+    document.getElementById('bcad-info-modalId').style.visibility = 'hidden';
+    // document.getElementById('bcad-info-modalId').style.visibility = 'none';
+
   }
 }
 
@@ -7956,7 +7971,7 @@ module.exports = sortByMaterials;
 function fileValidate(file) {
   console.log("▶ ⇛ file Validate:", file);
   try {
-    if (file.type === "text/csv") {
+    if (file.type === "text/csv" || file.type === "application/vnd.ms-excel") {
       return true
     }
 

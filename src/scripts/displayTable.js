@@ -5,12 +5,18 @@ function displayTable(jsonDetails) {
   const arrData = JSON.parse(jsonDetails)
   addTableHead()
   makeTable(arrData)
+  calcScroll()
   // addName()
   if (tableBody.innerHTML) {
     return addButtonPrint()
   }
 }
-
+// Считаем появление скрола
+function calcScroll() {
+  const scrollWidth = window.innerWidth - document.body.offsetWidth; // размер скролла
+  document.body.style.paddingRight = `${36 - scrollWidth}px`;
+  document.querySelector('.info').style.right = `${36 - scrollWidth}px`;
+}
 // Добавляем заголовки в таблицу
 function addTableHead() {
   const trHead = document.createElement('tr')
@@ -34,7 +40,6 @@ function makeTable(array) {
 }
 
 function addTableRow(obj) {
-  console.log("▶ ⇛ obj:", obj);
   const tr = document.createElement('tr')
   tr.innerHTML = `
   <tr>
