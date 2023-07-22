@@ -1,4 +1,5 @@
 function fileValidate(file) {
+  console.log("▶ ⇛ file Validate:", file);
   try {
     if (file.type === "text/csv") {
       return true

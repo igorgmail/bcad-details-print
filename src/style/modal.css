@@ -1,7 +1,9 @@
-#bcad-modal {
+#bcad-info-modalId {
   display: none;
 }
-
+hr {
+  width: 80%;
+}
 .bmodal-over {
   position: fixed;
   top: 0;
@@ -48,4 +50,12 @@
   padding: 10px;
   margin: auto;
   text-align: center;
+}
+.bmodal-footer {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.bmodal-footer>button {
+  margin: auto;
 }
