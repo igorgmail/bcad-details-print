@@ -3,7 +3,7 @@ const formatBites = require('./servises/formatBites')
 const infoContainer = document.querySelector('.info-container') // блок с инфо
 const uploadInput = document.getElementById('fileInput') // поле инпут
 
-// Создаем блок инфо
+// Создаем блок инфо и возвращаем элемент div
 function makeinfoBlock() {
   const infoBlock = document.createElement('div')
   infoBlock.classList.add('block-info')
@@ -12,8 +12,9 @@ function makeinfoBlock() {
 }
 
 // Отображаем инфо о файле и кнопку загрузить на сервер 
-function showInfoFile(infoBlock) {
-  const { name, size } = uploadInput.files[0]
+function showInfoFile(infoBlock, file) {
+  // const { name, size } = uploadInput.files[0]
+  const { name, size } = file
   infoBlock.innerHTML = `
   <p>${name}</p>
   <p>${formatBites(size)}</p>
@@ -37,14 +38,14 @@ function makeAndShowButtonClear(infoBlock) {
   clearButton.setAttribute('type', 'button');
   clearButton.setAttribute('id', 'buttonClear');
   clearButton.classList.add('button-30')
-  clearButton.innerHTML = `Очистить все`
+  clearButton.innerHTML = `Очистить Таблицу`
   infoBlock.append(clearButton)
   return clearButton
 }
 
-function createInfoBlock() {
+function createInfoBlock(file) {
   const infoBlock = makeinfoBlock()
-  showInfoFile(infoBlock)
+  showInfoFile(infoBlock, file)
   makeAndShowButtonToServer(infoBlock)
   const clearButton = makeAndShowButtonClear(infoBlock)
   return clearButton

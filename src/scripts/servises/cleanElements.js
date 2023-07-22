@@ -12,6 +12,7 @@ function clean(param) {
     cleanTable()
   }
   if (param === 'all') {
+    console.log("INFO COntainer Deleted");
     const uploadInput = document.getElementById('fileInput') // поле инпут
     const infoContainer = document.querySelector('.info-container') // блок с инфо
     infoContainer.innerHTML = ''
@@ -20,4 +21,4 @@ function clean(param) {
     if (document.querySelector('.im')) document.querySelector('.im').remove()
   }
 }
-module.exports = { cleanTable, clean }
+module.exports = { clean }
