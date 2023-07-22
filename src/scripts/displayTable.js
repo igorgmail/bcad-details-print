@@ -13,9 +13,9 @@ function displayTable(jsonDetails) {
 }
 // Считаем появление скрола
 function calcScroll() {
-  const scrollWidth = window.innerWidth - document.body.offsetWidth
-  console.log("▶ ⇛ scrollWidth:", scrollWidth);
-  document.body.style.width = `${document.body.offsetWidth + scrollWidth}px`
+  const scrollWidth = window.innerWidth - document.body.offsetWidth; // размер скролла
+  document.body.style.paddingRight = `${36 - scrollWidth}px`;
+  document.querySelector('.info').style.right = `${36 - scrollWidth}px`;
 }
 // Добавляем заголовки в таблицу
 function addTableHead() {

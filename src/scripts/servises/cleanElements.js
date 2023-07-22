@@ -2,6 +2,8 @@
 const cleanTable = () => {
   const tableHead = document.querySelector('thead')
   const tableBody = document.querySelector('tbody')
+  document.body.style.paddingRight = `36px`;
+  document.querySelector('.info').style.right = `36px`;
   tableHead.innerHTML = ``
   tableBody.innerHTML = ``
   if (document.querySelector('.button-print')) document.querySelector('.button-print').remove()
