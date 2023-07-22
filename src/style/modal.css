@@ -64,13 +64,13 @@ hr {
 }
 .modal-active {
   animation-name: modal-show;
-  animation-duration: .1s;
+  animation-duration: .3s;
   animation-timing-function: ease-in;
 }
 
 .modal-hidden {
   animation-name: modal-close;
-  animation-duration: .1s;
+  animation-duration: .3s;
   animation-timing-function: ease-in;
 }
 
