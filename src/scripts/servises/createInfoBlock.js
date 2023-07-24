@@ -1,4 +1,4 @@
-const formatBites = require('./servises/formatBites')
+const formatBites = require('./formatBites')
 
 const infoContainer = document.querySelector('.info-container') // блок с инфо
 const uploadInput = document.getElementById('fileInput') // поле инпут

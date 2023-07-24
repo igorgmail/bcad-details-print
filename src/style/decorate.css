@@ -111,12 +111,6 @@
   transform: translateY(2px);
 }
 
-/* CheckBox */
-/* <div class="checkbox-wrapper-13">
-  <input id="c1-13" type="checkbox">
-  <label for="c1-13">Checkbox</label>
-</div> */
-
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {
   .checkbox-wrapper-13 input[type=checkbox] {
     --active: #275EFE;
