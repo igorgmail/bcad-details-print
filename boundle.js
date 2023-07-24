@@ -6749,61 +6749,6 @@ function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
 },{"safe-buffer":28}],31:[function(require,module,exports){
-const formatBites = require('./servises/formatBites')
-
-const infoContainer = document.querySelector('.info-container') // блок с инфо
-const uploadInput = document.getElementById('fileInput') // поле инпут
-
-// Создаем блок инфо и возвращаем элемент div
-function makeinfoBlock() {
-  const infoBlock = document.createElement('div')
-  infoBlock.classList.add('block-info')
-  infoContainer.prepend(infoBlock)
-  return infoBlock
-}
-
-// Отображаем инфо о файле и кнопку загрузить на сервер 
-function showInfoFile(infoBlock, file) {
-  // const { name, size } = uploadInput.files[0]
-  const { name, size } = file
-  infoBlock.innerHTML = `
-  <p>${name}</p>
-  <p>${formatBites(size)}</p>
-  `
-}
-
-// Создаем кнопку преобразовать файл
-function makeAndShowButtonToServer(infoBlock) {
-  const buttonConvertFile = document.createElement('button')
-  buttonConvertFile.setAttribute('type', 'button');
-  buttonConvertFile.classList.add('button-30')
-  buttonConvertFile.setAttribute('id', 'buttonConvertFile');
-  buttonConvertFile.innerHTML = `В таблицу`
-  infoBlock.append(buttonConvertFile)
-  return buttonConvertFile
-}
-
-// создаем кнопку очистить
-function makeAndShowButtonClear(infoBlock) {
-  const clearButton = document.createElement('button')
-  clearButton.setAttribute('type', 'button');
-  clearButton.setAttribute('id', 'buttonClear');
-  clearButton.classList.add('button-30')
-  clearButton.innerHTML = `Очистить Таблицу`
-  infoBlock.append(clearButton)
-  return clearButton
-}
-
-function createInfoBlock(file) {
-  const infoBlock = makeinfoBlock()
-  showInfoFile(infoBlock, file)
-  makeAndShowButtonToServer(infoBlock)
-  const clearButton = makeAndShowButtonClear(infoBlock)
-  return clearButton
-}
-
-module.exports = createInfoBlock;
-},{"./servises/formatBites":40}],32:[function(require,module,exports){
 function changeEdges(array) {
   const kr1 = '⎯⎯⎯';
   const kr2 = '- - -';
@@ -6864,7 +6809,7 @@ function changeEdges(array) {
 }
 
 module.exports = changeEdges;
-},{}],33:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 const readCsvFromFile = require('./readCsvFromFile')
 const changeEdges = require('./changeEdges.js')
 const makeArrayObjects = require('./makeArrayObjects.js')
@@ -6878,7 +6823,7 @@ async function convertFile(file) {
 }
 
 module.exports = convertFile;
-},{"./changeEdges.js":32,"./makeArrayObjects.js":34,"./readCsvFromFile":35}],34:[function(require,module,exports){
+},{"./changeEdges.js":31,"./makeArrayObjects.js":33,"./readCsvFromFile":34}],33:[function(require,module,exports){
 // Создать обьект с заголовкамми где ключ название, значение индекс
 
 function getHeadersAndDetailsArray(arrayDetailsAll) {
@@ -6961,7 +6906,7 @@ function makeArrayObjects(arrayDetails) {
 
 module.exports = makeArrayObjects;
 
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (Buffer){(function (){
 var iconv = require('iconv-lite')
 
@@ -7015,124 +6960,20 @@ function validCodeCsv(data) {
 
 module.exports = readCsvFromFile;
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4,"iconv-lite":24}],36:[function(require,module,exports){
-const tableHead = document.querySelector('thead')
-const tableBody = document.querySelector('tbody')
-
-function displayTable(jsonDetails) {
-  const arrData = JSON.parse(jsonDetails)
-  addTableHead()
-  makeTable(arrData)
-  calcScroll()
-  // addName()
-  if (tableBody.innerHTML) {
-    return addButtonPrint()
-  }
-}
-// Считаем появление скрола
-function calcScroll() {
-  const scrollWidth = window.innerWidth - document.body.offsetWidth; // размер скролла
-  document.body.style.paddingRight = `${36 - scrollWidth}px`;
-  document.querySelector('.info').style.right = `${36 - scrollWidth}px`;
-}
-// Добавляем заголовки в таблицу
-function addTableHead() {
-  const trHead = document.createElement('tr')
-  trHead.innerHTML = `<th>№</th>
-  <th>Код</th>
-  <th>Название</th>
-  <th colspan="2">Габариты</th>
-  <th colspan="2">Кромки</th>
-  <th>Текстура</th>
-  <th>Материал</th>`
-  tableHead.append(trHead)
-}
-
-
-function makeTable(array) {
-  // const addName = checkHeight()
-  array.map((el) => {
-    tableBody.append(addTableRow(el))
-  }
-  )
-}
-
-function addTableRow(obj) {
-  const tr = document.createElement('tr')
-  tr.innerHTML = `
-  <tr>
-    <td class="td-centr">${obj["number"]}</td>
-    <td class="td-centr">${obj['code']}</td>
-    <td class="pl">${obj['title']}</td>
-
-    <td class="td-centr"><p class="td-num">${obj['A']}</p>
-      <div class="line-box">
-      </div>
-    </td>
-
-    <td class="td-centr"><p class="td-num">${obj['B']}</p>
-      <div class="line-box">
-      </div>
-    </td>
-
-    <td class="td-centr"><p class="td-num">${obj['a']}</p>
-      <div class="line-box">
-      <p class="td-line"><nobr>${obj["A_kromka"][0] || "  "}</nobr></p>
-      <p class="td-line"><nobr>${obj["A_kromka"][1] || "  "}</nobr></p>
-      </div>
-    </td>
-
-<td class="td-centr"><p class="td-num">${obj['b']}</p>
-    <div class="line-box">
-      <p class="td-line"><nobr>${obj["B_kromka"][0] || "  "}</nobr></p>
-      <p class="td-line"><nobr>${obj["B_kromka"][1] || "  "}</nobr></p>
-    </div>
-</td>
-
-<td class="td-centr pl">${obj["texture"] == 'Не определена' ? '-' : obj["texture"]}</td>
-<td class="pl">${obj["core"]}</td>
-</tr>
-`
-  return tr
-}
-
-function addButtonPrint() {
-  const containerBody = document.querySelector('.container-body')
-  const buttonPrint = document.createElement('button')
-  buttonPrint.classList.add('button-print', 'button-56')
-  buttonPrint.setAttribute('type', 'button')
-  buttonPrint.innerText = 'Печать'
-  containerBody.after(buttonPrint)
-  return buttonPrint
-}
-
-function addName() {
-  if (document.querySelector('.im')) return
-  const avtor = document.createElement('div')
-  avtor.classList.add('im')
-  avtor.innerText = 'igorfordev@gmail.com'
-  document.querySelector('body').prepend(avtor)
-  return
-}
-
-module.exports = { displayTable, addName };
-
-
-},{}],37:[function(require,module,exports){
+},{"buffer":4,"iconv-lite":24}],35:[function(require,module,exports){
 const fileValidate = require('./servises/validate.js')
-const { displayTable, addName } = require('./displayTable.js')
+const { displayTable, addName } = require('./servises/displayTable.js')
 
 const convertFile = require('./csvMake/index.js')
-const createInfoBlock = require('./createInfoBlock.js')
+const createInfoBlock = require('./servises/createInfoBlock.js')
 const { clean } = require('./servises/cleanElements.js')
 const addMaterialBlock = require('./servises/createMaterialBlock.js')
 const sortByMaterials = require('./servises/sortMaterials.js')
-const modal = require('./servises/modal.js')
+const modal = require('./modal.js')
 const mockHandler = require('./servises/mockHandler.js')
+
 const uploadButton = document.getElementById('uploadButton')// Загрузить файл
 const uploadInput = document.getElementById('fileInput') // поле инпут
-// const infoContainer = document.querySelector('.info-container') // блок с инфо
-// const containerHead = document.querySelector('.container-head') // контейнер шапки(инфо и кнопки)
 
 // ! Слушатели
 
@@ -7244,7 +7085,27 @@ function getCheckedMaterials() {
   return checkedMaterials;
 }
 
-},{"./createInfoBlock.js":31,"./csvMake/index.js":33,"./displayTable.js":36,"./servises/cleanElements.js":38,"./servises/createMaterialBlock.js":39,"./servises/mockHandler.js":41,"./servises/modal.js":42,"./servises/sortMaterials.js":43,"./servises/validate.js":44}],38:[function(require,module,exports){
+},{"./csvMake/index.js":32,"./modal.js":36,"./servises/cleanElements.js":37,"./servises/createInfoBlock.js":38,"./servises/createMaterialBlock.js":39,"./servises/displayTable.js":40,"./servises/mockHandler.js":42,"./servises/sortMaterials.js":43,"./servises/validate.js":44}],36:[function(require,module,exports){
+const modal = {
+  show() {
+    // document.getElementById('bcad-info-modalId').style.display = 'block';
+    document.getElementById('bcad-info-modalId').style.visibility = 'visible';
+    document.querySelector('.bmodal-wrap').classList.add('modal-active');
+    document.querySelector('.bmodal-wrap').classList.remove('modal-hidden');
+
+  },
+
+  close() {
+    document.querySelector('.bmodal-wrap').classList.remove('modal-active');
+    document.querySelector('.bmodal-wrap').classList.add('modal-hidden');
+    document.getElementById('bcad-info-modalId').style.visibility = 'hidden';
+    // document.getElementById('bcad-info-modalId').style.visibility = 'none';
+
+  }
+}
+
+module.exports = modal;
+},{}],37:[function(require,module,exports){
 // Очищаем Таблицу
 const cleanTable = () => {
   const tableHead = document.querySelector('thead')
@@ -7270,7 +7131,62 @@ function clean(param) {
   }
 }
 module.exports = { clean }
-},{}],39:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
+const formatBites = require('./formatBites')
+
+const infoContainer = document.querySelector('.info-container') // блок с инфо
+const uploadInput = document.getElementById('fileInput') // поле инпут
+
+// Создаем блок инфо и возвращаем элемент div
+function makeinfoBlock() {
+  const infoBlock = document.createElement('div')
+  infoBlock.classList.add('block-info')
+  infoContainer.prepend(infoBlock)
+  return infoBlock
+}
+
+// Отображаем инфо о файле и кнопку загрузить на сервер 
+function showInfoFile(infoBlock, file) {
+  // const { name, size } = uploadInput.files[0]
+  const { name, size } = file
+  infoBlock.innerHTML = `
+  <p>${name}</p>
+  <p>${formatBites(size)}</p>
+  `
+}
+
+// Создаем кнопку преобразовать файл
+function makeAndShowButtonToServer(infoBlock) {
+  const buttonConvertFile = document.createElement('button')
+  buttonConvertFile.setAttribute('type', 'button');
+  buttonConvertFile.classList.add('button-30')
+  buttonConvertFile.setAttribute('id', 'buttonConvertFile');
+  buttonConvertFile.innerHTML = `В таблицу`
+  infoBlock.append(buttonConvertFile)
+  return buttonConvertFile
+}
+
+// создаем кнопку очистить
+function makeAndShowButtonClear(infoBlock) {
+  const clearButton = document.createElement('button')
+  clearButton.setAttribute('type', 'button');
+  clearButton.setAttribute('id', 'buttonClear');
+  clearButton.classList.add('button-30')
+  clearButton.innerHTML = `Очистить Таблицу`
+  infoBlock.append(clearButton)
+  return clearButton
+}
+
+function createInfoBlock(file) {
+  const infoBlock = makeinfoBlock()
+  showInfoFile(infoBlock, file)
+  makeAndShowButtonToServer(infoBlock)
+  const clearButton = makeAndShowButtonClear(infoBlock)
+  return clearButton
+}
+
+module.exports = createInfoBlock;
+},{"./formatBites":41}],39:[function(require,module,exports){
 
 
 // ? addMaterialBlock получает json с деталями и 
@@ -7352,6 +7268,109 @@ const addMaterialBlock = (jsonDetail) => {
 
 module.exports = addMaterialBlock;
 },{}],40:[function(require,module,exports){
+const tableHead = document.querySelector('thead')
+const tableBody = document.querySelector('tbody')
+
+function displayTable(jsonDetails) {
+  const arrData = JSON.parse(jsonDetails)
+  addTableHead()
+  makeTable(arrData)
+  calcScroll()
+  // addName()
+  if (tableBody.innerHTML) {
+    return addButtonPrint()
+  }
+}
+// Считаем появление скрола
+function calcScroll() {
+  const scrollWidth = window.innerWidth - document.body.offsetWidth; // размер скролла
+  document.body.style.paddingRight = `${36 - scrollWidth}px`;
+  document.querySelector('.info').style.right = `${36 - scrollWidth}px`;
+}
+// Добавляем заголовки в таблицу
+function addTableHead() {
+  const trHead = document.createElement('tr')
+  trHead.innerHTML = `<th>№</th>
+  <th>Код</th>
+  <th>Название</th>
+  <th colspan="2">Габариты</th>
+  <th colspan="2">Кромки</th>
+  <th>Текстура</th>
+  <th>Материал</th>`
+  tableHead.append(trHead)
+}
+
+
+function makeTable(array) {
+  // const addName = checkHeight()
+  array.map((el) => {
+    tableBody.append(addTableRow(el))
+  }
+  )
+}
+
+function addTableRow(obj) {
+  const tr = document.createElement('tr')
+  tr.innerHTML = `
+  <tr>
+    <td class="td-centr">${obj["number"]}</td>
+    <td class="td-centr">${obj['code']}</td>
+    <td class="pl">${obj['title']}</td>
+
+    <td class="td-centr"><p class="td-num">${obj['A']}</p>
+      <div class="line-box">
+      </div>
+    </td>
+
+    <td class="td-centr"><p class="td-num">${obj['B']}</p>
+      <div class="line-box">
+      </div>
+    </td>
+
+    <td class="td-centr"><p class="td-num">${obj['a']}</p>
+      <div class="line-box">
+      <p class="td-line"><nobr>${obj["A_kromka"][0] || "  "}</nobr></p>
+      <p class="td-line"><nobr>${obj["A_kromka"][1] || "  "}</nobr></p>
+      </div>
+    </td>
+
+<td class="td-centr"><p class="td-num">${obj['b']}</p>
+    <div class="line-box">
+      <p class="td-line"><nobr>${obj["B_kromka"][0] || "  "}</nobr></p>
+      <p class="td-line"><nobr>${obj["B_kromka"][1] || "  "}</nobr></p>
+    </div>
+</td>
+
+<td class="td-centr pl">${obj["texture"] == 'Не определена' ? '-' : obj["texture"]}</td>
+<td class="pl">${obj["core"]}</td>
+</tr>
+`
+  return tr
+}
+
+function addButtonPrint() {
+  const containerBody = document.querySelector('.container-body')
+  const buttonPrint = document.createElement('button')
+  buttonPrint.classList.add('button-print', 'button-56')
+  buttonPrint.setAttribute('type', 'button')
+  buttonPrint.innerText = 'Печать'
+  containerBody.after(buttonPrint)
+  return buttonPrint
+}
+
+function addName() {
+  if (document.querySelector('.im')) return
+  const avtor = document.createElement('div')
+  avtor.classList.add('im')
+  avtor.innerText = 'igorfordev@gmail.com'
+  document.querySelector('body').prepend(avtor)
+  return
+}
+
+module.exports = { displayTable, addName };
+
+
+},{}],41:[function(require,module,exports){
 function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) {
     return '0';
@@ -7364,7 +7383,7 @@ function formatBytes(bytes, decimals = 2) {
 }
 
 module.exports = formatBytes
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 const fs = require('fs')
 
 const mock = {
@@ -7380,27 +7399,7 @@ const mock = {
 }
 
 module.exports = mock;
-},{"fs":3}],42:[function(require,module,exports){
-const modal = {
-  show() {
-    // document.getElementById('bcad-info-modalId').style.display = 'block';
-    document.getElementById('bcad-info-modalId').style.visibility = 'visible';
-    document.querySelector('.bmodal-wrap').classList.add('modal-active');
-    document.querySelector('.bmodal-wrap').classList.remove('modal-hidden');
-
-  },
-
-  close() {
-    document.querySelector('.bmodal-wrap').classList.remove('modal-active');
-    document.querySelector('.bmodal-wrap').classList.add('modal-hidden');
-    document.getElementById('bcad-info-modalId').style.visibility = 'hidden';
-    // document.getElementById('bcad-info-modalId').style.visibility = 'none';
-
-  }
-}
-
-module.exports = modal;
-},{}],43:[function(require,module,exports){
+},{"fs":3}],43:[function(require,module,exports){
 // Получает json с деталями и параметры выбранных checkbox
 // И возвращает json отсортированных деталей с учетом выбранного материала
 
@@ -7432,4 +7431,4 @@ function fileValidate(file) {
 }
 
 module.exports = fileValidate;
-},{}]},{},[37]);
+},{}]},{},[35]);

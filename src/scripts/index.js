@@ -1,17 +1,16 @@
 const fileValidate = require('./servises/validate.js')
-const { displayTable, addName } = require('./displayTable.js')
+const { displayTable, addName } = require('./servises/displayTable.js')
 
 const convertFile = require('./csvMake/index.js')
-const createInfoBlock = require('./createInfoBlock.js')
+const createInfoBlock = require('./servises/createInfoBlock.js')
 const { clean } = require('./servises/cleanElements.js')
 const addMaterialBlock = require('./servises/createMaterialBlock.js')
 const sortByMaterials = require('./servises/sortMaterials.js')
-const modal = require('./servises/modal.js')
+const modal = require('./modal.js')
 const mockHandler = require('./servises/mockHandler.js')
+
 const uploadButton = document.getElementById('uploadButton')// Загрузить файл
 const uploadInput = document.getElementById('fileInput') // поле инпут
-// const infoContainer = document.querySelector('.info-container') // блок с инфо
-// const containerHead = document.querySelector('.container-head') // контейнер шапки(инфо и кнопки)
 
 // ! Слушатели
 

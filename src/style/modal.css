@@ -78,9 +78,8 @@ hr {
   0% {
     filter: blur(50px) opacity(0);
     -webkit-filter: blur(50px) opacity(0);
-    transform: translatey(-122px);
-    transform: scale(.1);
     visibility: hidden;
+    transform: translate(58%, -86%) scale(.1);
   }
 
   100% {
@@ -95,11 +94,14 @@ hr {
   0% {
     visibility: visible;
     transform: scale(1);
+    filter: blur(0px) opacity(1);
+      -webkit-blur(0px) opacity(1);
   }
 
   100% {
+    filter: blur(50px) opacity(0);
+      -webkit-filter: blur(50px) opacity(0);
     visibility: hidden;
-    transform: translatey(-122px);
-    transform: scale(.1);
+    transform: translate(58%, -86%) scale(.1);
   }
 }
