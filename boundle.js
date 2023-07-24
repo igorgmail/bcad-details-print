@@ -7088,7 +7088,6 @@ function getCheckedMaterials() {
 },{"./csvMake/index.js":32,"./modal.js":36,"./servises/cleanElements.js":37,"./servises/createInfoBlock.js":38,"./servises/createMaterialBlock.js":39,"./servises/displayTable.js":40,"./servises/mockHandler.js":42,"./servises/sortMaterials.js":43,"./servises/validate.js":44}],36:[function(require,module,exports){
 const modal = {
   show() {
-    // document.getElementById('bcad-info-modalId').style.display = 'block';
     document.getElementById('bcad-info-modalId').style.visibility = 'visible';
     document.querySelector('.bmodal-wrap').classList.add('modal-active');
     document.querySelector('.bmodal-wrap').classList.remove('modal-hidden');
@@ -7099,8 +7098,6 @@ const modal = {
     document.querySelector('.bmodal-wrap').classList.remove('modal-active');
     document.querySelector('.bmodal-wrap').classList.add('modal-hidden');
     document.getElementById('bcad-info-modalId').style.visibility = 'hidden';
-    // document.getElementById('bcad-info-modalId').style.visibility = 'none';
-
   }
 }
 
