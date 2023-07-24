@@ -44,6 +44,7 @@ body {
   position: absolute;
   top: 10px;
   right: 36px;
+    /* transition-duration: .5s; */
 }
 
 .info:hover {
@@ -309,8 +310,11 @@ tfoot>td,
   .bmodal-wrap {
     width: 60%
     }
+                .info-container {
+                  flex-wrap: wrap
+                }
     }
-
+    
 @media (max-width: 500px) {
   .td-line {
     margin: 0;
@@ -323,6 +327,7 @@ tfoot>td,
     width: 80%;
   }
 }
+
 @media(max-width: 480px) {
   .bmodal-wrap {
     width: 80%
