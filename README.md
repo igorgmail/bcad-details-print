@@ -6,7 +6,7 @@
 При переходе на нативный JavaScript, в модуле были немного изменены стили, а также реализована возможность загрузки демонстрационных данных для удобства пользователей.
 
 <br>
-<img src="https://i.ibb.co/DgKq57D/screen-2.gif" alt="Gif" width="80%" style="display: block; margin: 0 auto;">
+<img src="https://i.ibb.co/2Wf0hQT/screen.gif" alt="Gif" width="80%" style="display: block; margin: 0 auto;">
 <br>
 
 ### Функциональность модуля включает в себя:
