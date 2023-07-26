@@ -16,7 +16,7 @@
 4.  **Позволяет распечатать** итоговую таблицу.
 
 <br>
-<img src="https://i.ibb.co/dD6pCLd/toPrint.png" alt="toPrint" style="display: block; margin: 0 auto;" border="0">
+<img src="https://i.ibb.co/dD6pCLd/toPrint.png" alt="toPrint" width="60%" style="display: block; margin: 0 auto;" border="0">
 <br>
  
 ### Сборка и работа статически
