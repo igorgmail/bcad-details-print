@@ -4,9 +4,9 @@
 Данный модуль представляет собой один из компонентов CRM системы для мебельной фабрики. Его основная функция заключается в печати списка деталей изделия, полученного из программы Bcad в формате CSV. При создании данного модуля, изначально он был разработан на базе React, входя в состав CRM системы. Позднее, с целью оптимизации и обеспечения максимальной совместимости, модуль был переписан на нативный JavaScript, используя подход AJAX.
 
 При переходе на нативный JavaScript, в модуле были добавлены стили, а также реализована возможность загрузки демонстрационных данных для удобства пользователей.
-<br>
 
-<img src="https://i.ibb.co/3WKJSVL/Gif.gif" alt="Gif" width="80%" style="display: block; margin: 0 auto;">
+<br>
+<img src="https://i.ibb.co/Tr3gdg9/screen.gif" alt="Gif" width="80%" style="display: block; margin: 0 auto;">
 <br>
 
 ### Функциональность модуля включает в себя:
@@ -16,8 +16,7 @@
 4.  **Позволяет распечатать** итоговую таблицу.
 
 <br>
-<img src="https://i.ibb.co/QYmBLCW/toPrint.png" alt="toPrint" style="display: block; margin: 0 auto;" border="0">
-<!-- <img src="https://i.ibb.co/QYmBLCW/toPrint.png" alt="toPrint" width="80%" style="display: block; margin: 0 auto;"> -->
+<img src="https://i.ibb.co/dD6pCLd/toPrint.png" alt="toPrint" style="display: block; margin: 0 auto;" border="0">
 <br>
  
 ### Сборка и работа статически
