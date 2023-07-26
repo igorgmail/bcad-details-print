@@ -7,13 +7,12 @@ const { clean } = require('./servises/cleanElements.js')
 const addMaterialBlock = require('./servises/createMaterialBlock.js')
 const sortByMaterials = require('./servises/sortMaterials.js')
 const modal = require('./modal.js')
-const mockHandler = require('./servises/mockHandler.js')
+const demoJson = require('../public/src/mock/demo.json')
 
 const uploadButton = document.getElementById('uploadButton')// Загрузить файл
 const uploadInput = document.getElementById('fileInput') // поле инпут
 
 // ! Слушатели
-
 // info
 document.querySelector('.info').addEventListener('click', (e) => {
   e.preventDefault()
@@ -23,19 +22,18 @@ document.querySelector('.info').addEventListener('click', (e) => {
 // Button закрузить demo.csv
 document.querySelector('.info-button__mock').addEventListener(('click'), async (e) => {
   e.preventDefault()
-  const fileBlob = await mockHandler.getFilePath()
-  const fakeFile = new File([fileBlob], 'demo.csv', { type: 'text/csv' });
   clean('all')
   setTimeout(() => {
     modal.close()
   }, 200)
-  fileHandler(null, fakeFile)
+  fileHandler(null, true)
 })
+
 document.querySelector('.bmodal').addEventListener('click', (e) => {
   e.preventDefault()
   if (e.target.className === 'bmodal-over' || e.target.className === 'bmodal-close') modal.close()
 })
-// Загрузить файл
+// Инпут Загрузить файл
 uploadButton.addEventListener('click', (event) => {
   event.preventDefault()
   clean('all')
@@ -45,23 +43,39 @@ uploadButton.addEventListener('click', (event) => {
 // слушатель инпута файла
 uploadInput.addEventListener('change', async (event) => {
   event.preventDefault()
-  fileHandler(event)
+  fileHandler(event, null)
 })
 
 // функция обработки файла из инпута или переданного как параметр
-async function fileHandler(event, file) {
-
-  const myFile = event?.target.files[0] || file
-
-  if (!fileValidate(myFile)) {
-    alert(`Ошибка загрузки файла, или файл больше 10mb.
-    Или попробуйте перезагрузить страницу`)
-    return
-  }
-
+async function fileHandler(event, fakeFile) {
+  let jsonDetail;
+  let clearButton;
   // файл есть и можно что то делать
-  const jsonDetail = await convertFile(myFile);
-  const clearButton = createInfoBlock(myFile)
+  // два варианта
+  // 1 - Загрузка файла клентом через инпут
+  // 2 - Загрузка демо данных (в json формате)
+  // Вариант 1
+  if (event?.target.files[0]) {
+    const myFile = event?.target.files[0]
+    jsonDetail = await convertFile(myFile);
+    clearButton = createInfoBlock(myFile)
+
+    if (!fileValidate(myFile)) {
+      alert(`Ошибка загрузки файла, или файл больше 10mb.
+    Или попробуйте перезагрузить страницу`)
+      return
+    }
+  }
+  // Вариант 2
+  if (fakeFile) {
+    const demoFile = {
+      name: 'demo.csv',
+      size: 16550
+    };
+
+    jsonDetail = JSON.stringify(demoJson)
+    clearButton = createInfoBlock(demoFile)
+  }
 
   // Кнопка очистить Таблицу
   clearButton.addEventListener('click', (e) => {

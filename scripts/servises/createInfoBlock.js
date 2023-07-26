@@ -13,7 +13,6 @@ function makeinfoBlock() {
 
 // Отображаем инфо о файле и кнопку загрузить на сервер 
 function showInfoFile(infoBlock, file) {
-  // const { name, size } = uploadInput.files[0]
   const { name, size } = file
   infoBlock.innerHTML = `
   <p>${name}</p>

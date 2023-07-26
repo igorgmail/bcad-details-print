@@ -153,8 +153,6 @@ function fromByteArray (uint8) {
 },{}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
-arguments[4][2][0].apply(exports,arguments)
-},{"dup":2}],4:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -1935,7 +1933,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":1,"buffer":4,"ieee754":26}],5:[function(require,module,exports){
+},{"base64-js":1,"buffer":3,"ieee754":25}],4:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -2534,7 +2532,7 @@ function findIdx(table, val) {
 }
 
 
-},{"safer-buffer":29}],6:[function(require,module,exports){
+},{"safer-buffer":28}],5:[function(require,module,exports){
 "use strict";
 
 // Description of supported double byte encodings and aliases.
@@ -2724,7 +2722,7 @@ module.exports = {
     'xxbig5': 'big5hkscs',
 };
 
-},{"./tables/big5-added.json":12,"./tables/cp936.json":13,"./tables/cp949.json":14,"./tables/cp950.json":15,"./tables/eucjp.json":16,"./tables/gb18030-ranges.json":17,"./tables/gbk-added.json":18,"./tables/shiftjis.json":19}],7:[function(require,module,exports){
+},{"./tables/big5-added.json":11,"./tables/cp936.json":12,"./tables/cp949.json":13,"./tables/cp950.json":14,"./tables/eucjp.json":15,"./tables/gb18030-ranges.json":16,"./tables/gbk-added.json":17,"./tables/shiftjis.json":18}],6:[function(require,module,exports){
 "use strict";
 
 // Update this array if you add/rename/remove files in this directory.
@@ -2749,7 +2747,7 @@ for (var i = 0; i < modules.length; i++) {
             exports[enc] = module[enc];
 }
 
-},{"./dbcs-codec":5,"./dbcs-data":6,"./internal":8,"./sbcs-codec":9,"./sbcs-data":11,"./sbcs-data-generated":10,"./utf16":20,"./utf32":21,"./utf7":22}],8:[function(require,module,exports){
+},{"./dbcs-codec":4,"./dbcs-data":5,"./internal":7,"./sbcs-codec":8,"./sbcs-data":10,"./sbcs-data-generated":9,"./utf16":19,"./utf32":20,"./utf7":21}],7:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -2949,7 +2947,7 @@ InternalDecoderCesu8.prototype.end = function() {
     return res;
 }
 
-},{"safer-buffer":29,"string_decoder":30}],9:[function(require,module,exports){
+},{"safer-buffer":28,"string_decoder":29}],8:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -3023,7 +3021,7 @@ SBCSDecoder.prototype.write = function(buf) {
 SBCSDecoder.prototype.end = function() {
 }
 
-},{"safer-buffer":29}],10:[function(require,module,exports){
+},{"safer-buffer":28}],9:[function(require,module,exports){
 "use strict";
 
 // Generated data for sbcs codec. Don't edit manually. Regenerate using generation/gen-sbcs.js script.
@@ -3475,7 +3473,7 @@ module.exports = {
     "chars": "���������������������������������กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุู����฿เแโใไๅๆ็่้๊๋์ํ๎๏๐๑๒๓๔๕๖๗๘๙๚๛����"
   }
 }
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 // Manually added data to be used by sbcs codec in addition to generated one.
@@ -3656,7 +3654,7 @@ module.exports = {
 };
 
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports=[
 ["8740","䏰䰲䘃䖦䕸𧉧䵷䖳𧲱䳢𧳅㮕䜶䝄䱇䱀𤊿𣘗𧍒𦺋𧃒䱗𪍑䝏䗚䲅𧱬䴇䪤䚡𦬣爥𥩔𡩣𣸆𣽡晍囻"],
 ["8767","綕夝𨮹㷴霴𧯯寛𡵞媤㘥𩺰嫑宷峼杮薓𩥅瑡璝㡵𡵓𣚞𦀡㻬"],
@@ -3780,7 +3778,7 @@ module.exports=[
 ["fea1","𤅟𤩹𨮏孆𨰃𡢞瓈𡦈甎瓩甞𨻙𡩋寗𨺬鎅畍畊畧畮𤾂㼄𤴓疎瑝疞疴瘂瘬癑癏癯癶𦏵皐臯㟸𦤑𦤎皡皥皷盌𦾟葢𥂝𥅽𡸜眞眦着撯𥈠睘𣊬瞯𨥤𨥨𡛁矴砉𡍶𤨒棊碯磇磓隥礮𥗠磗礴碱𧘌辸袄𨬫𦂃𢘜禆褀椂禀𥡗禝𧬹礼禩渪𧄦㺨秆𩄍秔"]
 ]
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports=[
 ["0","\u0000",127,"€"],
 ["8140","丂丄丅丆丏丒丗丟丠両丣並丩丮丯丱丳丵丷丼乀乁乂乄乆乊乑乕乗乚乛乢乣乤乥乧乨乪",5,"乲乴",9,"乿",6,"亇亊"],
@@ -4046,7 +4044,7 @@ module.exports=[
 ["fe40","兀嗀﨎﨏﨑﨓﨔礼﨟蘒﨡﨣﨤﨧﨨﨩"]
 ]
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports=[
 ["0","\u0000",127],
 ["8141","갂갃갅갆갋",4,"갘갞갟갡갢갣갥",6,"갮갲갳갴"],
@@ -4321,7 +4319,7 @@ module.exports=[
 ["fda1","爻肴酵驍侯候厚后吼喉嗅帿後朽煦珝逅勛勳塤壎焄熏燻薰訓暈薨喧暄煊萱卉喙毁彙徽揮暉煇諱輝麾休携烋畦虧恤譎鷸兇凶匈洶胸黑昕欣炘痕吃屹紇訖欠欽歆吸恰洽翕興僖凞喜噫囍姬嬉希憙憘戱晞曦熙熹熺犧禧稀羲詰"]
 ]
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports=[
 ["0","\u0000",127],
 ["a140","　，、。．‧；：？！︰…‥﹐﹑﹒·﹔﹕﹖﹗｜–︱—︳╴︴﹏（）︵︶｛｝︷︸〔〕︹︺【】︻︼《》︽︾〈〉︿﹀「」﹁﹂『』﹃﹄﹙﹚"],
@@ -4500,7 +4498,7 @@ module.exports=[
 ["f9a1","龤灨灥糷虪蠾蠽蠿讞貜躩軉靋顳顴飌饡馫驤驦驧鬤鸕鸗齈戇欞爧虌躨钂钀钁驩驨鬮鸙爩虋讟钃鱹麷癵驫鱺鸝灩灪麤齾齉龘碁銹裏墻恒粧嫺╔╦╗╠╬╣╚╩╝╒╤╕╞╪╡╘╧╛╓╥╖╟╫╢╙╨╜║═╭╮╰╯▓"]
 ]
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports=[
 ["0","\u0000",127],
 ["8ea1","｡",62],
@@ -4684,9 +4682,9 @@ module.exports=[
 ["8feda1","黸黿鼂鼃鼉鼏鼐鼑鼒鼔鼖鼗鼙鼚鼛鼟鼢鼦鼪鼫鼯鼱鼲鼴鼷鼹鼺鼼鼽鼿齁齃",4,"齓齕齖齗齘齚齝齞齨齩齭",4,"齳齵齺齽龏龐龑龒龔龖龗龞龡龢龣龥"]
 ]
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports={"uChars":[128,165,169,178,184,216,226,235,238,244,248,251,253,258,276,284,300,325,329,334,364,463,465,467,469,471,473,475,477,506,594,610,712,716,730,930,938,962,970,1026,1104,1106,8209,8215,8218,8222,8231,8241,8244,8246,8252,8365,8452,8454,8458,8471,8482,8556,8570,8596,8602,8713,8720,8722,8726,8731,8737,8740,8742,8748,8751,8760,8766,8777,8781,8787,8802,8808,8816,8854,8858,8870,8896,8979,9322,9372,9548,9588,9616,9622,9634,9652,9662,9672,9676,9680,9702,9735,9738,9793,9795,11906,11909,11913,11917,11928,11944,11947,11951,11956,11960,11964,11979,12284,12292,12312,12319,12330,12351,12436,12447,12535,12543,12586,12842,12850,12964,13200,13215,13218,13253,13263,13267,13270,13384,13428,13727,13839,13851,14617,14703,14801,14816,14964,15183,15471,15585,16471,16736,17208,17325,17330,17374,17623,17997,18018,18212,18218,18301,18318,18760,18811,18814,18820,18823,18844,18848,18872,19576,19620,19738,19887,40870,59244,59336,59367,59413,59417,59423,59431,59437,59443,59452,59460,59478,59493,63789,63866,63894,63976,63986,64016,64018,64021,64025,64034,64037,64042,65074,65093,65107,65112,65127,65132,65375,65510,65536],"gbChars":[0,36,38,45,50,81,89,95,96,100,103,104,105,109,126,133,148,172,175,179,208,306,307,308,309,310,311,312,313,341,428,443,544,545,558,741,742,749,750,805,819,820,7922,7924,7925,7927,7934,7943,7944,7945,7950,8062,8148,8149,8152,8164,8174,8236,8240,8262,8264,8374,8380,8381,8384,8388,8390,8392,8393,8394,8396,8401,8406,8416,8419,8424,8437,8439,8445,8482,8485,8496,8521,8603,8936,8946,9046,9050,9063,9066,9076,9092,9100,9108,9111,9113,9131,9162,9164,9218,9219,11329,11331,11334,11336,11346,11361,11363,11366,11370,11372,11375,11389,11682,11686,11687,11692,11694,11714,11716,11723,11725,11730,11736,11982,11989,12102,12336,12348,12350,12384,12393,12395,12397,12510,12553,12851,12962,12973,13738,13823,13919,13933,14080,14298,14585,14698,15583,15847,16318,16434,16438,16481,16729,17102,17122,17315,17320,17402,17418,17859,17909,17911,17915,17916,17936,17939,17961,18664,18703,18814,18962,19043,33469,33470,33471,33484,33485,33490,33497,33501,33505,33513,33520,33536,33550,37845,37921,37948,38029,38038,38064,38065,38066,38069,38075,38076,38078,39108,39109,39113,39114,39115,39116,39265,39394,189000]}
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports=[
 ["a140","",62],
 ["a180","",32],
@@ -4744,7 +4742,7 @@ module.exports=[
 ["8135f437",""]
 ]
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports=[
 ["0","\u0000",128],
 ["a1","｡",62],
@@ -4871,7 +4869,7 @@ module.exports=[
 ["fc40","髜魵魲鮏鮱鮻鰀鵰鵫鶴鸙黑"]
 ]
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -5070,7 +5068,7 @@ function detectEncoding(bufs, defaultEncoding) {
 
 
 
-},{"safer-buffer":29}],21:[function(require,module,exports){
+},{"safer-buffer":28}],20:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safer-buffer').Buffer;
@@ -5391,7 +5389,7 @@ function detectEncoding(bufs, defaultEncoding) {
     return defaultEncoding || 'utf-32le';
 }
 
-},{"safer-buffer":29}],22:[function(require,module,exports){
+},{"safer-buffer":28}],21:[function(require,module,exports){
 "use strict";
 var Buffer = require("safer-buffer").Buffer;
 
@@ -5683,7 +5681,7 @@ Utf7IMAPDecoder.prototype.end = function() {
 
 
 
-},{"safer-buffer":29}],23:[function(require,module,exports){
+},{"safer-buffer":28}],22:[function(require,module,exports){
 "use strict";
 
 var BOMChar = '\uFEFF';
@@ -5737,7 +5735,7 @@ StripBOMWrapper.prototype.end = function() {
 }
 
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 "use strict";
 
 var Buffer = require("safer-buffer").Buffer;
@@ -5919,7 +5917,7 @@ if ("Ā" != "\u0100") {
     console.error("iconv-lite warning: js files use non-utf8 encoding. See https://github.com/ashtuchkin/iconv-lite/wiki/Javascript-source-file-encodings for more info.");
 }
 
-},{"../encodings":7,"./bom-handling":23,"./streams":25,"safer-buffer":29,"stream":2}],25:[function(require,module,exports){
+},{"../encodings":6,"./bom-handling":22,"./streams":24,"safer-buffer":28,"stream":2}],24:[function(require,module,exports){
 "use strict";
 
 var Buffer = require("safer-buffer").Buffer;
@@ -6030,7 +6028,7 @@ module.exports = function(stream_module) {
     };
 };
 
-},{"safer-buffer":29}],26:[function(require,module,exports){
+},{"safer-buffer":28}],25:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -6117,7 +6115,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -6303,7 +6301,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],28:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
@@ -6370,7 +6368,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":4}],29:[function(require,module,exports){
+},{"buffer":3}],28:[function(require,module,exports){
 (function (process){(function (){
 /* eslint-disable node/no-deprecated-api */
 
@@ -6451,7 +6449,7 @@ if (!safer.constants) {
 module.exports = safer
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":27,"buffer":4}],30:[function(require,module,exports){
+},{"_process":26,"buffer":3}],29:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6748,7 +6746,1125 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":28}],31:[function(require,module,exports){
+},{"safe-buffer":27}],30:[function(require,module,exports){
+module.exports=[
+  {
+    "number": "1",
+    "title": "Полка",
+    "code": "07",
+    "A": "734",
+    "B": "599",
+    "a": "734",
+    "b": "599",
+    "thick": "4",
+    "square": "0.43967",
+    "edges": "Нет",
+    "core": "Зеркало 4 мм",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Не определена",
+    "Amount": "8",
+    "A_kromka": [],
+    "B_kromka": []
+  },
+  {
+    "number": "2",
+    "title": "Полка",
+    "code": "07",
+    "A": "734",
+    "B": "599",
+    "a": "734",
+    "b": "599",
+    "thick": "10",
+    "square": "0.43967",
+    "edges": "Нет",
+    "core": "Дуб Французский",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Не определена",
+    "Amount": "8",
+    "A_kromka": [],
+    "B_kromka": []
+  },
+  {
+    "number": "3",
+    "title": "дно тумбы",
+    "code": "03",
+    "A": "584",
+    "B": "710",
+    "a": "582",
+    "b": "710",
+    "thick": "16",
+    "square": "0.41464",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "4",
+    "title": "дно тумбы",
+    "code": "03",
+    "A": "600",
+    "B": "660",
+    "a": "598",
+    "b": "660",
+    "thick": "16",
+    "square": "0.396",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "5",
+    "title": "добор",
+    "code": "01-18",
+    "A": "2530",
+    "B": "100",
+    "a": "2530",
+    "b": "96",
+    "thick": "10",
+    "square": "0.253",
+    "edges": " Н Л В П ",
+    "core": "Дуб Французский",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "2",
+    "A_kromka": [
+      "- - -",
+      "- - -"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "6",
+    "title": "жесткость",
+    "code": "03-15",
+    "A": "200",
+    "B": "660",
+    "a": "200",
+    "b": "660",
+    "thick": "16",
+    "square": "0.132",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "7",
+    "title": "жесткость 01",
+    "code": "01-16",
+    "A": "200",
+    "B": "710",
+    "a": "200",
+    "b": "710",
+    "thick": "16",
+    "square": "0.142",
+    "edges": " Л ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "8",
+    "title": "жесткость 01",
+    "code": "01-16",
+    "A": "200",
+    "B": "710",
+    "a": "200",
+    "b": "710",
+    "thick": "16",
+    "square": "0.142",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "9",
+    "title": "жесткость 04",
+    "code": "01-16",
+    "A": "200",
+    "B": "765",
+    "a": "200",
+    "b": "765",
+    "thick": "16",
+    "square": "0.153",
+    "edges": " Л ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "10",
+    "title": "жесткость 04",
+    "code": "01-16",
+    "A": "200",
+    "B": "765",
+    "a": "200",
+    "b": "765",
+    "thick": "16",
+    "square": "0.153",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "2",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "11",
+    "title": "клав",
+    "code": "02-01",
+    "A": "50",
+    "B": "350",
+    "a": "50",
+    "b": "350",
+    "thick": "16",
+    "square": "0.0175",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "4",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "12",
+    "title": "клав",
+    "code": "02-01",
+    "A": "400",
+    "B": "820",
+    "a": "398",
+    "b": "820",
+    "thick": "16",
+    "square": "0.328",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "13",
+    "title": "клав стол",
+    "code": "02-01",
+    "A": "368",
+    "B": "700",
+    "a": "364",
+    "b": "696",
+    "thick": "16",
+    "square": "0.2576",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [
+      "- - -",
+      "- - -"
+    ],
+    "B_kromka": [
+      "- - -",
+      "- - -"
+    ]
+  },
+  {
+    "number": "14",
+    "title": "клав фасад",
+    "code": "02-01",
+    "A": "80",
+    "B": "700",
+    "a": "78",
+    "b": "696",
+    "thick": "16",
+    "square": "0.056",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [
+      "- - -",
+      "- - -"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "15",
+    "title": "короб планка верх",
+    "code": "01-17",
+    "A": "68",
+    "B": "1520",
+    "a": "68",
+    "b": "1520",
+    "thick": "16",
+    "square": "0.10336",
+    "edges": "Нет",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "4",
+    "A_kromka": [],
+    "B_kromka": []
+  },
+  {
+    "number": "16",
+    "title": "короб планка верх",
+    "code": "01-17",
+    "A": "100",
+    "B": "1520",
+    "a": "100",
+    "b": "1520",
+    "thick": "16",
+    "square": "0.152",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "17",
+    "title": "короб планка верх",
+    "code": "01-17",
+    "A": "100",
+    "B": "1522",
+    "a": "100",
+    "b": "1522",
+    "thick": "16",
+    "square": "0.1522",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "18",
+    "title": "короб фальш",
+    "code": "01-17",
+    "A": "100",
+    "B": "1522",
+    "a": "98",
+    "b": "1522",
+    "thick": "10",
+    "square": "0.1522",
+    "edges": " Н Л В П ",
+    "core": "Дуб Французский",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "19",
+    "title": "крыша",
+    "code": "01-11",
+    "A": "794",
+    "B": "1554",
+    "a": "792",
+    "b": "1554",
+    "thick": "16",
+    "square": "1.23388",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "20",
+    "title": "крыша 02",
+    "code": "01-11",
+    "A": "794",
+    "B": "1449",
+    "a": "792",
+    "b": "1449",
+    "thick": "16",
+    "square": "1.15051",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "21",
+    "title": "крыша тумбы",
+    "code": "01-04",
+    "A": "584",
+    "B": "660",
+    "a": "582",
+    "b": "660",
+    "thick": "16",
+    "square": "0.38544",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "22",
+    "title": "крыша тумбы",
+    "code": "01-04",
+    "A": "584",
+    "B": "710",
+    "a": "582",
+    "b": "710",
+    "thick": "16",
+    "square": "0.41464",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "23",
+    "title": "перегородка",
+    "code": "02-19",
+    "A": "500",
+    "B": "100",
+    "a": "500",
+    "b": "100",
+    "thick": "16",
+    "square": "0.05",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "1",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "24",
+    "title": "перегородка 2",
+    "code": "02-20",
+    "A": "500",
+    "B": "84",
+    "a": "500",
+    "b": "84",
+    "thick": "16",
+    "square": "0.042",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "1",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "25",
+    "title": "полка",
+    "code": "02-23",
+    "A": "600",
+    "B": "788",
+    "a": "598",
+    "b": "788",
+    "thick": "16",
+    "square": "0.4728",
+    "edges": " П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "- - -"
+    ]
+  },
+  {
+    "number": "26",
+    "title": "полка 01",
+    "code": "01-12",
+    "A": "600",
+    "B": "710",
+    "a": "598",
+    "b": "710",
+    "thick": "16",
+    "square": "0.426",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "2",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "27",
+    "title": "полка 02",
+    "code": "01-10",
+    "A": "600",
+    "B": "788",
+    "a": "598",
+    "b": "788",
+    "thick": "16",
+    "square": "0.4728",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "28",
+    "title": "полка 02",
+    "code": "01-13",
+    "A": "600",
+    "B": "386",
+    "a": "598",
+    "b": "386",
+    "thick": "16",
+    "square": "0.2316",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "4",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "29",
+    "title": "полка 02",
+    "code": "01-14",
+    "A": "600",
+    "B": "820",
+    "a": "598",
+    "b": "820",
+    "thick": "16",
+    "square": "0.492",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "30",
+    "title": "полка 03",
+    "code": "01-15",
+    "A": "700",
+    "B": "660",
+    "a": "698",
+    "b": "660",
+    "thick": "16",
+    "square": "0.462",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "4",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "31",
+    "title": "стоеваая",
+    "code": "01",
+    "A": "2606",
+    "B": "794",
+    "a": "2606",
+    "b": "792",
+    "thick": "16",
+    "square": "2.06916",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "32",
+    "title": "стоеваая",
+    "code": "02",
+    "A": "2590",
+    "B": "700",
+    "a": "2590",
+    "b": "698",
+    "thick": "16",
+    "square": "1.813",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "3",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "33",
+    "title": "стоевая тумбы",
+    "code": "01-02",
+    "A": "720",
+    "B": "566",
+    "a": "720",
+    "b": "564",
+    "thick": "16",
+    "square": "0.40752",
+    "edges": " Н В ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ],
+    "B_kromka": []
+  },
+  {
+    "number": "34",
+    "title": "стоевая тумбы",
+    "code": "01-02",
+    "A": "960",
+    "B": "566",
+    "a": "960",
+    "b": "564",
+    "thick": "16",
+    "square": "0.54336",
+    "edges": " Н В ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "2",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ],
+    "B_kromka": []
+  },
+  {
+    "number": "35",
+    "title": "стойка",
+    "code": "02-22",
+    "A": "1212",
+    "B": "600",
+    "a": "1210",
+    "b": "598",
+    "thick": "16",
+    "square": "0.7272",
+    "edges": " Н Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "2",
+    "A_kromka": [
+      "- - -"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "36",
+    "title": "стойка 02",
+    "code": "01-13",
+    "A": "906",
+    "B": "600",
+    "a": "906",
+    "b": "598",
+    "thick": "16",
+    "square": "0.5436",
+    "edges": " Н В ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "1",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ],
+    "B_kromka": []
+  },
+  {
+    "number": "37",
+    "title": "столешница",
+    "code": "01-09",
+    "A": "520",
+    "B": "820",
+    "a": "518",
+    "b": "820",
+    "thick": "16",
+    "square": "0.4264",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "- - -"
+    ]
+  },
+  {
+    "number": "38",
+    "title": "фасад тумба",
+    "code": "01-05",
+    "A": "656",
+    "B": "236",
+    "a": "652",
+    "b": "232",
+    "thick": "16",
+    "square": "0.15482",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Не определена",
+    "Amount": "4",
+    "A_kromka": [
+      "- - -",
+      "- - -"
+    ],
+    "B_kromka": [
+      "- - -",
+      "- - -"
+    ]
+  },
+  {
+    "number": "39",
+    "title": "фасад тумба",
+    "code": "01-05",
+    "A": "706",
+    "B": "236",
+    "a": "702",
+    "b": "232",
+    "thick": "16",
+    "square": "0.16662",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Не определена",
+    "Amount": "3",
+    "A_kromka": [
+      "- - -",
+      "- - -"
+    ],
+    "B_kromka": [
+      "- - -",
+      "- - -"
+    ]
+  },
+  {
+    "number": "40",
+    "title": "хдф дно ящика",
+    "code": "хдф-01",
+    "A": "500",
+    "B": "586",
+    "a": "500",
+    "b": "586",
+    "thick": "4",
+    "square": "0.293",
+    "edges": "Нет",
+    "core": "ХДФ 4 мм",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "4",
+    "A_kromka": [],
+    "B_kromka": []
+  },
+  {
+    "number": "41",
+    "title": "хдф дно ящика",
+    "code": "хдф-01",
+    "A": "500",
+    "B": "636",
+    "a": "500",
+    "b": "636",
+    "thick": "4",
+    "square": "0.318",
+    "edges": "Нет",
+    "core": "ХДФ 4 мм",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "3",
+    "A_kromka": [],
+    "B_kromka": []
+  },
+  {
+    "number": "42",
+    "title": "щит",
+    "code": "02-21",
+    "A": "500",
+    "B": "736",
+    "a": "500",
+    "b": "736",
+    "thick": "16",
+    "square": "0.368",
+    "edges": " Н ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "1",
+    "A_kromka": [
+      "⎯⎯⎯"
+    ],
+    "B_kromka": []
+  },
+  {
+    "number": "43",
+    "title": "щит низ",
+    "code": "02-01",
+    "A": "846",
+    "B": "820",
+    "a": "846",
+    "b": "820",
+    "thick": "16",
+    "square": "0.69372",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Вдоль",
+    "Amount": "1",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "44",
+    "title": "ящик бок",
+    "code": "01",
+    "A": "188",
+    "B": "500",
+    "a": "188",
+    "b": "500",
+    "thick": "16",
+    "square": "0.094",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "7",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "45",
+    "title": "ящик бок",
+    "code": "01-07",
+    "A": "188",
+    "B": "500",
+    "a": "188",
+    "b": "500",
+    "thick": "16",
+    "square": "0.094",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "7",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "46",
+    "title": "ящик зад перед",
+    "code": "01-06",
+    "A": "168",
+    "B": "570",
+    "a": "168",
+    "b": "570",
+    "thick": "16",
+    "square": "0.09576",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "8",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "47",
+    "title": "ящик зад перед",
+    "code": "01-06",
+    "A": "168",
+    "B": "620",
+    "a": "168",
+    "b": "620",
+    "thick": "16",
+    "square": "0.10416",
+    "edges": " Н Л В П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "6",
+    "A_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "48",
+    "title": "ящики царга",
+    "code": "01-23",
+    "A": "100",
+    "B": "620",
+    "a": "100",
+    "b": "620",
+    "thick": "16",
+    "square": "0.062",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "3",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  },
+  {
+    "number": "49",
+    "title": "ящики царга",
+    "code": "03-23",
+    "A": "100",
+    "B": "570",
+    "a": "100",
+    "b": "570",
+    "thick": "16",
+    "square": "0.057",
+    "edges": " Л П ",
+    "core": "ЛДСП Серый",
+    "front": "Без облицовки",
+    "back": "Без облицовки",
+    "texture": "Поперёк",
+    "Amount": "4",
+    "A_kromka": [],
+    "B_kromka": [
+      "⎯⎯⎯",
+      "⎯⎯⎯"
+    ]
+  }
+]
+},{}],31:[function(require,module,exports){
 function changeEdges(array) {
   const kr1 = '⎯⎯⎯';
   const kr2 = '- - -';
@@ -6960,7 +8076,7 @@ function validCodeCsv(data) {
 
 module.exports = readCsvFromFile;
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4,"iconv-lite":24}],35:[function(require,module,exports){
+},{"buffer":3,"iconv-lite":23}],35:[function(require,module,exports){
 const fileValidate = require('./servises/validate.js')
 const { displayTable, addName } = require('./servises/displayTable.js')
 
@@ -6970,13 +8086,12 @@ const { clean } = require('./servises/cleanElements.js')
 const addMaterialBlock = require('./servises/createMaterialBlock.js')
 const sortByMaterials = require('./servises/sortMaterials.js')
 const modal = require('./modal.js')
-const mockHandler = require('./servises/mockHandler.js')
+const demoJson = require('../public/src/mock/demo.json')
 
 const uploadButton = document.getElementById('uploadButton')// Загрузить файл
 const uploadInput = document.getElementById('fileInput') // поле инпут
 
 // ! Слушатели
-
 // info
 document.querySelector('.info').addEventListener('click', (e) => {
   e.preventDefault()
@@ -6986,19 +8101,18 @@ document.querySelector('.info').addEventListener('click', (e) => {
 // Button закрузить demo.csv
 document.querySelector('.info-button__mock').addEventListener(('click'), async (e) => {
   e.preventDefault()
-  const fileBlob = await mockHandler.getFilePath()
-  const fakeFile = new File([fileBlob], 'demo.csv', { type: 'text/csv' });
   clean('all')
   setTimeout(() => {
     modal.close()
   }, 200)
-  fileHandler(null, fakeFile)
+  fileHandler(null, true)
 })
+
 document.querySelector('.bmodal').addEventListener('click', (e) => {
   e.preventDefault()
   if (e.target.className === 'bmodal-over' || e.target.className === 'bmodal-close') modal.close()
 })
-// Загрузить файл
+// Инпут Загрузить файл
 uploadButton.addEventListener('click', (event) => {
   event.preventDefault()
   clean('all')
@@ -7008,23 +8122,39 @@ uploadButton.addEventListener('click', (event) => {
 // слушатель инпута файла
 uploadInput.addEventListener('change', async (event) => {
   event.preventDefault()
-  fileHandler(event)
+  fileHandler(event, null)
 })
 
 // функция обработки файла из инпута или переданного как параметр
-async function fileHandler(event, file) {
-
-  const myFile = event?.target.files[0] || file
-
-  if (!fileValidate(myFile)) {
-    alert(`Ошибка загрузки файла, или файл больше 10mb.
-    Или попробуйте перезагрузить страницу`)
-    return
-  }
-
+async function fileHandler(event, fakeFile) {
+  let jsonDetail;
+  let clearButton;
   // файл есть и можно что то делать
-  const jsonDetail = await convertFile(myFile);
-  const clearButton = createInfoBlock(myFile)
+  // два варианта
+  // 1 - Загрузка файла клентом через инпут
+  // 2 - Загрузка демо данных (в json формате)
+  // Вариант 1
+  if (event?.target.files[0]) {
+    const myFile = event?.target.files[0]
+    jsonDetail = await convertFile(myFile);
+    clearButton = createInfoBlock(myFile)
+
+    if (!fileValidate(myFile)) {
+      alert(`Ошибка загрузки файла, или файл больше 10mb.
+    Или попробуйте перезагрузить страницу`)
+      return
+    }
+  }
+  // Вариант 2
+  if (fakeFile) {
+    const demoFile = {
+      name: 'demo.csv',
+      size: 16550
+    };
+
+    jsonDetail = JSON.stringify(demoJson)
+    clearButton = createInfoBlock(demoFile)
+  }
 
   // Кнопка очистить Таблицу
   clearButton.addEventListener('click', (e) => {
@@ -7085,7 +8215,7 @@ function getCheckedMaterials() {
   return checkedMaterials;
 }
 
-},{"./csvMake/index.js":32,"./modal.js":36,"./servises/cleanElements.js":37,"./servises/createInfoBlock.js":38,"./servises/createMaterialBlock.js":39,"./servises/displayTable.js":40,"./servises/mockHandler.js":42,"./servises/sortMaterials.js":43,"./servises/validate.js":44}],36:[function(require,module,exports){
+},{"../public/src/mock/demo.json":30,"./csvMake/index.js":32,"./modal.js":36,"./servises/cleanElements.js":37,"./servises/createInfoBlock.js":38,"./servises/createMaterialBlock.js":39,"./servises/displayTable.js":40,"./servises/sortMaterials.js":42,"./servises/validate.js":43}],36:[function(require,module,exports){
 const modal = {
   show() {
     document.getElementById('bcad-info-modalId').style.visibility = 'visible';
@@ -7144,7 +8274,6 @@ function makeinfoBlock() {
 
 // Отображаем инфо о файле и кнопку загрузить на сервер 
 function showInfoFile(infoBlock, file) {
-  // const { name, size } = uploadInput.files[0]
   const { name, size } = file
   infoBlock.innerHTML = `
   <p>${name}</p>
@@ -7184,8 +8313,6 @@ function createInfoBlock(file) {
 
 module.exports = createInfoBlock;
 },{"./formatBites":41}],39:[function(require,module,exports){
-
-
 // ? addMaterialBlock получает json с деталями и 
 // Создаем блок выбор материала
 function createBlockChooseMaterials() {
@@ -7273,7 +8400,6 @@ function displayTable(jsonDetails) {
   addTableHead()
   makeTable(arrData)
   calcScroll()
-  // addName()
   if (tableBody.innerHTML) {
     return addButtonPrint()
   }
@@ -7299,7 +8425,6 @@ function addTableHead() {
 
 
 function makeTable(array) {
-  // const addName = checkHeight()
   array.map((el) => {
     tableBody.append(addTableRow(el))
   }
@@ -7381,22 +8506,6 @@ function formatBytes(bytes, decimals = 2) {
 
 module.exports = formatBytes
 },{}],42:[function(require,module,exports){
-const fs = require('fs')
-
-const mock = {
-  async getFilePath() {
-    const response = await fetch('./src/mock/demo.csv')
-    const fileBlob = await response.blob()
-    return fileBlob
-  },
-  readFile(filePath) {
-    const fileData = fs.readFileSync(filePath)
-    return fileData
-  }
-}
-
-module.exports = mock;
-},{"fs":3}],43:[function(require,module,exports){
 // Получает json с деталями и параметры выбранных checkbox
 // И возвращает json отсортированных деталей с учетом выбранного материала
 
@@ -7411,7 +8520,7 @@ function sortByMaterials(json, arrChoose) {
 }
 
 module.exports = sortByMaterials;
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 function fileValidate(file) {
   try {
     if (file.type === "text/csv" || file.type === "application/vnd.ms-excel") {

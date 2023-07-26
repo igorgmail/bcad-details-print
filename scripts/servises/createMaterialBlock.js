@@ -1,5 +1,3 @@
-
-
 // ? addMaterialBlock получает json с деталями и 
 // Создаем блок выбор материала
 function createBlockChooseMaterials() {

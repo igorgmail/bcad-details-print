@@ -1,14 +1,14 @@
 {
-  "name": "client",
+  "name": "bCad csv details to print",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify ./src/scripts/index.js -o ./boundle.js",
-    "watch": "watchify ./src/scripts/index.js -o ./boundle.js",
-    "debug": "browserify ./src/scripts/index.js -o ./boundle.js --debug"
+    "build": "browserify ./scripts/index.js -o ./public/boundle.js",
+    "watch": "watchify ./scripts/index.js -o ./public/boundle.js",
+    "debug": "browserify ./scripts/index.js -o ./public/boundle.js --debug"
   },
   "keywords": [],
   "author": "",
