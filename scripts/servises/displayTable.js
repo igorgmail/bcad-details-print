@@ -6,7 +6,6 @@ function displayTable(jsonDetails) {
   addTableHead()
   makeTable(arrData)
   calcScroll()
-  // addName()
   if (tableBody.innerHTML) {
     return addButtonPrint()
   }
@@ -32,7 +31,6 @@ function addTableHead() {
 
 
 function makeTable(array) {
-  // const addName = checkHeight()
   array.map((el) => {
     tableBody.append(addTableRow(el))
   }
