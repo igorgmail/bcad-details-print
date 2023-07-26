@@ -34,4 +34,7 @@ npm install
 ```js
 npm run build
 ```
+<br>
 
+### Deploy on Render.com
+[bCad csv Print](https://bcad-details-print.onrender.com/)
